@@ -1,5 +1,5 @@
-require_relative '../../common/step_definitions/env'
-require_relative '../../common/support/config'
+require_relative '../../bdd-helper/step_definitions/env'
+require_relative '../../bdd-helper/support/config'
 
 And(/^.. refresh the page$/) do
   page.evaluate_script('window.location.reload()')

@@ -1,4 +1,4 @@
-require_relative '../../common/step_definitions/env'
+require_relative '../../bdd-helper/step_definitions/env'
 
 When(/^.. click "([^"]*)" (link|button) by (id|title|text)$/) do |identifier, identifier_type, condition|
   # E.g: .. click "Save" button by text

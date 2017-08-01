@@ -1,4 +1,4 @@
-require_relative '../../common/step_definitions/env'
+require_relative '../../bdd-helper/step_definitions/env'
 
 And(/^.. select "([^"]*)" as "([^"]*)" from dropdown$/) do |dropdown, option|
   # E.g : select "Country" as "United States" from dropdown
