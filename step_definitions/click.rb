@@ -1,6 +1,6 @@
 require_relative '../../bdd-helper/step_definitions/env'
 
-When(/^.. click "([^"]*)" (link|button) by (id|title|text)$/) do |identifier, identifier_type, condition|
+When(/^click "([^"]*)" (link|button) by (id|title|text)$/) do |identifier, identifier_type, condition|
   # E.g: .. click "Save" button by text
   Capybara.ignore_hidden_elements = false
   if condition == 'title' || condition == 'text'
@@ -22,7 +22,7 @@ When(/^.. click "([^"]*)" (link|button) by (id|title|text)$/) do |identifier, id
   end
 end
 
-Then(/^.. click type "([^"]*)" value "([^"]*)" web element$/) do |web_element_type, web_element|
+Then(/^click type "([^"]*)" value "([^"]*)" web element$/) do |web_element_type, web_element|
   # E.g: .. click type "id" value "save" web element
   page.should have_selector(:"#{web_element_type}", web_element)
   find(:"#{web_element_type}", web_element).click

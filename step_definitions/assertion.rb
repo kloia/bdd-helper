@@ -3,7 +3,7 @@ require_relative '../../bdd-helper/support/config'
 
 include BaseConstants
 
-Then(/^.. page (should|should_not) contain "([^"]*)" content$/) do |condition, content|
+Then(/^page (should|should_not) contain "([^"]*)" content$/) do |condition, content|
   # E.g. : page should contain "Test" content
   # E.g. : page should_not contain "Test" content
   # page.should have_content(content, count: count, wait: @timeout)
@@ -16,7 +16,7 @@ Then(/^.. page (should|should_not) contain "([^"]*)" content$/) do |condition, c
   end
 end
 
-Then(/^.. page (should|should_not) contain the following contents:$/) do |condition, table|
+Then(/^page (should|should_not) contain the following contents:$/) do |condition, table|
   sleep 1
   values = table.raw
   values.each {|raw|
@@ -28,7 +28,7 @@ Then(/^.. page (should|should_not) contain the following contents:$/) do |condit
   }
 end
 
-Then(/^.. page (should|should_not) contain "([^"]*)" "([^"]*)" web element/) do |condition, web_element_type, web_element|
+Then(/^page (should|should_not) contain "([^"]*)" "([^"]*)" web element/) do |condition, web_element_type, web_element|
   # E.g. : page should contain "css" "#test .form" web element
   sleep 1
   if condition == 'should'
@@ -39,7 +39,7 @@ Then(/^.. page (should|should_not) contain "([^"]*)" "([^"]*)" web element/) do 
   end
 end
 
-Then(/^.. page (should|should_not) contain "([^"]*)" button$/) do |condition, button|
+Then(/^page (should|should_not) contain "([^"]*)" button$/) do |condition, button|
   # E.g. : page should contain "Save" button
   # E.g. : page should_not contain "Save" button
   # page.should have_content(content, count: count, wait: @timeout)
@@ -52,7 +52,7 @@ Then(/^.. page (should|should_not) contain "([^"]*)" button$/) do |condition, bu
   end
 end
 
-Then(/^.. "([^"]*)" button (should|should_not) be disabled$/) do |button, condition|
+Then(/^"([^"]*)" button (should|should_not) be disabled$/) do |button, condition|
   sleep 1
   if condition == 'should'
     find_button button, disabled: true
@@ -62,7 +62,7 @@ Then(/^.. "([^"]*)" button (should|should_not) be disabled$/) do |button, condit
   end
 end
 
-When(/^.. "([^"]*)" checkbox should be (checked|unchecked)$/) do |checkbox, condition|
+When(/^"([^"]*)" checkbox should be (checked|unchecked)$/) do |checkbox, condition|
   # E.g. : .. "Agree" checkbox should be checked
   # checkbox can be label, value or id
   if condition == 'checked'
@@ -72,7 +72,7 @@ When(/^.. "([^"]*)" checkbox should be (checked|unchecked)$/) do |checkbox, cond
   end
 end
 
-When(/^.. "([^"]*)" radio button should be (selected|unselected)$/) do |radio_button, condition|
+When(/^"([^"]*)" radio button should be (selected|unselected)$/) do |radio_button, condition|
   # E.g. : .. "Yes" radio button should be selected
   # radio_button can be name, id or label
   if condition == 'checked'
@@ -82,7 +82,7 @@ When(/^.. "([^"]*)" radio button should be (selected|unselected)$/) do |radio_bu
   end
 end
 
-Then(/^.. validation message should be "([^"]*)" about "([^"]*)" field$/) do |expected_message, element_value|
+Then(/^validation message should be "([^"]*)" about "([^"]*)" field$/) do |expected_message, element_value|
   sleep 1.5
   if page.has_css?(element_value)
     expected_message.should == page.execute_script("return document.querySelector('#{element_value}').innerHTML.trim();")
