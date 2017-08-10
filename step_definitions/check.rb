@@ -15,3 +15,8 @@ When(/^choose "([^"]*)" radio button$/) do |radio_button|
   # radio_button can be name, id or label
   choose(radio_button)
 end
+
+And(/^.. check type "([^"]*)" value "([^"]*)" web element$/) do |web_element_type, web_element|
+  page.should have_selector(:"#{web_element_type}", web_element, wait: @timeout)
+  find(:"#{web_element_type}", web_element).set(true)
+end
