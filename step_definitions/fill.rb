@@ -31,30 +31,7 @@ end
 #   fill_in 'Name', :with => 'Jimmy'
 # end
 
-And(/^fill "([^"]*)" with random (email|password|name)$/) do |field, condition|
-
-  def generate_code(number, condition)
-
-    if condition == 'email'
-      charset = Array('A'..'Z') + Array('a'..'z') + Array(0..9)
-      Array.new(number) {charset.sample}.join + "@gmail.com"
-    elsif condition == 'password'
-      charset = Array('A'..'Z') + Array('a'..'z') + Array(0..9)
-      Array.new(number) {charset.sample}.join
-
-    elsif condition == 'name'
-      charset = Array('A'..'Z') + Array('a'..'z')
-      Array.new(number) {charset.sample}.join
-    end
-
-  end
-
-  var = generate_code(10, condition)
-  fill_in(field, with: var)
-
-end
-
-And(/^.. fill "([^"]*)" with random (email|password|name|gsm)$/) do |field, condition|
+And(/^fill "([^"]*)" with random (email|password|name|gsm)$/) do |field, condition|
   def generate_code(number, condition)
     if condition == 'email'
       charset = Array('A'..'Z') + Array('a'..'z') + Array(0..9)
