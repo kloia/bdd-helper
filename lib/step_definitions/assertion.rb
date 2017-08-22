@@ -1,5 +1,5 @@
-require_relative '../../bdd-helper/step_definitions/env'
-require_relative '../../bdd-helper/support/config'
+require 'step_definitions/env'
+require 'support/config'
 
 include BaseConstants
 

@@ -1,4 +1,4 @@
-require_relative '../../bdd-helper/step_definitions/env'
+require 'step_definitions/env'
 
 When(/^hover to "([^"]*)" value "([^"]*)" web element$/) do |web_element_type, web_element|
   find(:"#{web_element_type}", web_element).trigger(:mouseover)

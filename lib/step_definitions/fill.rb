@@ -1,4 +1,4 @@
-require_relative '../../bdd-helper/step_definitions/env'
+require 'step_definitions/env'
 
 And(/^fill "([^"]*)" with "([^"]*)"$/) do |field, value|
   # E.g : ..fill "Phone Number" with "5555555555"

@@ -1,4 +1,4 @@
-require_relative '../../bdd-helper/step_definitions/env'
+require 'step_definitions/env'
 
 When(/^(check|uncheck) "([^"]*)" checkbox$/) do |condition, checkbox|
   # E.g. : .. check "Agree" checkbox
