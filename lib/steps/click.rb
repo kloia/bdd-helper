@@ -1,5 +1,3 @@
-require 'step_definitions/env'
-
 When(/^click "([^"]*)" (link|button) by (id|title|text)$/) do |identifier, identifier_type, condition|
   # E.g: .. click "Save" button by text
   Capybara.ignore_hidden_elements = false

@@ -1,7 +1,4 @@
-require 'step_definitions/env'
-require 'support/config'
-
-include BaseConstants
+@timeout = 20
 
 Then(/^page (should|should_not) contain "([^"]*)" content$/) do |condition, content|
   # E.g. : page should contain "Test" content

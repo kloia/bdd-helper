@@ -1,6 +1,3 @@
-require 'step_definitions/env'
-require 'support/config'
-
 And(/^refresh the page$/) do
   page.evaluate_script('window.location.reload()')
   sleep 1

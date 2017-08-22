@@ -1,5 +1,3 @@
-require 'step_definitions/env'
-
 And(/^fill "([^"]*)" with "([^"]*)"$/) do |field, value|
   # E.g : ..fill "Phone Number" with "5555555555"
   # field can be name, id or label

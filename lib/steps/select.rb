@@ -1,5 +1,3 @@
-require 'step_definitions/env'
-
 And(/^select "([^"]*)" as "([^"]*)" from dropdown$/) do |dropdown, option|
   # E.g : select "Country" as "United States" from dropdown
   # E.g : select "United States", from: "Country", :match => :first ===>> to select first matched option
