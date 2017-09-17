@@ -45,4 +45,4 @@ select "Country" as "United States" from dropdown
 
 ...
 
-# NOTE: To auto completing bdd-helper steps in RubyMine, IntelliJ IDEs, go to Preferences/Cucumber section and add "bdd-helper" to the list.
+# NOTE: To auto completing bdd-helper steps in RubyMine, IntelliJ IDEs, go to Preferences/Languages & Frameworks/Cucumber section and add "bdd-helper" to the list.
