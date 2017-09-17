@@ -6,7 +6,9 @@ bdd-helper covers your needs.
 It combines some of major actions on a browser like click, fill, select ...
 
 # Install
+```
 gem install bdd-helper
+```
 
 # Example
 - assertion
