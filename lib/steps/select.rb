@@ -16,7 +16,7 @@ Then /^"([^"]*)" (should|should_not) be selected for "([^"]*)" dropdown$/ do |se
 end
 
 Then /^"([^"]*)" dropdown (should|should_not) contain "([^"]*)" option$/ do |dropdown, condition, option_text|
-  # E.g : .. "Country" dropdown should contain "United States" option
+  # E.g : "Country" dropdown should contain "United States" option
   if condition == 'should'
     page.should have_select(dropdown, with_options: [option_text])
 

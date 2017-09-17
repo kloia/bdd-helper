@@ -1,15 +1,17 @@
-@timeout = 20
+require_relative 'config'
+
+include BaseConstants
 
 Then(/^page (should|should_not) contain "([^"]*)" content$/) do |condition, content|
   # E.g. : page should contain "Test" content
   # E.g. : page should_not contain "Test" content
-  # page.should have_content(content, count: count, wait: @timeout)
+  # page.should have_content(content, count: count, wait: $timeout)
   sleep 1
   if condition == 'should'
-    page.should have_content(content, wait: @timeout)
+    page.should have_content(content, wait: $timeout)
 
   elsif condition == 'should_not'
-    page.should_not have_content(content, wait: @timeout)
+    page.should_not have_content(content, wait: $timeout)
   end
 end
 
@@ -18,9 +20,9 @@ Then(/^page (should|should_not) contain the following contents:$/) do |condition
   values = table.raw
   values.each {|raw|
     if condition == 'should'
-      page.should have_content(raw[0], wait: @timeout)
+      page.should have_content(raw[0], wait: $timeout)
     elsif condition == 'should_not'
-      page.should_not have_content(raw[0], wait: @timeout)
+      page.should_not have_content(raw[0], wait: $timeout)
     end
   }
 end
@@ -29,23 +31,23 @@ Then(/^page (should|should_not) contain "([^"]*)" "([^"]*)" web element/) do |co
   # E.g. : page should contain "css" "#test .form" web element
   sleep 1
   if condition == 'should'
-    page.should have_selector(:"#{web_element_type}", web_element, wait: @timeout)
+    page.should have_selector(:"#{web_element_type}", web_element, wait: $timeout)
 
   elsif condition == 'should_not'
-    page.should_not have_selector(:"#{web_element_type}", web_element, wait: @timeout)
+    page.should_not have_selector(:"#{web_element_type}", web_element, wait: $timeout)
   end
 end
 
 Then(/^page (should|should_not) contain "([^"]*)" button$/) do |condition, button|
   # E.g. : page should contain "Save" button
   # E.g. : page should_not contain "Save" button
-  # page.should have_content(content, count: count, wait: @timeout)
+  # page.should have_content(content, count: count, wait: $timeout)
   sleep 1
   if condition == 'should'
-    page.should have_button(button, wait: @timeout)
+    page.should have_button(button, wait: $timeout)
 
   elsif condition == 'should_not'
-    page.should_not have_button(button, wait: @timeout)
+    page.should_not have_button(button, wait: $timeout)
   end
 end
 
@@ -60,7 +62,7 @@ Then(/^"([^"]*)" button (should|should_not) be disabled$/) do |button, condition
 end
 
 When(/^"([^"]*)" checkbox should be (checked|unchecked)$/) do |checkbox, condition|
-  # E.g. : .. "Agree" checkbox should be checked
+  # E.g. : "Agree" checkbox should be checked
   # checkbox can be label, value or id
   if condition == 'checked'
     expect(page).to have_field(checkbox, checked: true, visible: true)
@@ -70,7 +72,7 @@ When(/^"([^"]*)" checkbox should be (checked|unchecked)$/) do |checkbox, conditi
 end
 
 When(/^"([^"]*)" radio button should be (selected|unselected)$/) do |radio_button, condition|
-  # E.g. : .. "Yes" radio button should be selected
+  # E.g. : "Yes" radio button should be selected
   # radio_button can be name, id or label
   if condition == 'checked'
     expect(page).to have_field(radio_button, checked: true, visible: true)

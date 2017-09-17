@@ -5,7 +5,6 @@ require 'capybara/rspec'
 require 'rspec'
 require 'rspec/expectations'
 require 'rspec/matchers'
-require 'selenium-cucumber'
 require 'selenium/webdriver'
 require 'selenium/webdriver/common/wait'
 

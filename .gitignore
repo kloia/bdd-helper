@@ -1,2 +1,5 @@
 .DS_Store
 *.gem
+*.idea
+*.iml
+*.bash_profile

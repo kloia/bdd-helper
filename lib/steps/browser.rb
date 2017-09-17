@@ -1,21 +1,15 @@
+require_relative 'config'
+
+include BaseConstants
+
 And(/^refresh the page$/) do
   page.evaluate_script('window.location.reload()')
   sleep 1
-  # location = current_url
-  # page.driver.browser.navigate.refresh
-  # sleep 1
-  # current_url.should == location
 end
 
 When(/^navigate browser to "([^"]*)" url$/) do |url|
   visit url
-  #current_url.should == url
 end
-
-# When(/^navigate browser to "([^"]*)" path$/) do |path|
-#   visit $URL + path
-#   current_url.should == $URL + path
-# end
 
 And(/^switch window to (first|last) opened$/) do |condition|
   if condition == 'first'
@@ -26,14 +20,10 @@ And(/^switch window to (first|last) opened$/) do |condition|
 end
 
 Then(/^user should redirected to "([^"]*)" path$/) do |path|
-  page.should have_current_path(path, wait: $TIMEOUT)
+  page.should have_current_path(path, wait: $timeout)
 end
 
-# Given(/^user on main page$/) do
-#   current_url.should == @url + '/'
-# end
-
-Then(/^alert message (should|should_not) be "([^"]*)" seçiniz."$/) do |condition, message|
+Then(/^alert message (should|should_not) be "([^"]*)"$/) do |condition, message|
   if condition == 'should'
     resp = page.driver.browser.switch_to.alert.text
     resp.should == message

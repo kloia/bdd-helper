@@ -1,5 +1,5 @@
 module BaseConstants
 
-  @timeout = 20
+  $timeout = 20
 
 end
