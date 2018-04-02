@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.date        = '2017-09-17'
   s.summary     = "Helper step definitions for Gherkin"
   s.description = "Package of helper step definitions for BDD testing with Gherkin and Cucumber"
-  s.authors     = ["Mehmet Ali Aydin"]
+  s.authors     = ["kloia"]
   s.email       = 'maaydin@gmail.com'
   s.files       = Dir['lib/**/*.*'].to_a
   s.homepage    = 'http://rubygems.org/gems/bdd-helper'
