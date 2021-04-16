@@ -1,99 +1,121 @@
 Feature: demo features
 
+  #Capybara konfigurasyonu bdd-helper'da yaptirmaliyiz url vs gormesi icin ama nasil?
 
   Scenario: steps
-    #homepage conf file varsa oradaki ya da nasıl yönetiliyorsa capybarada
-    Given The homepage is opened
+    ####################################
+    # BROWSER UTIL
+    When visit base page
+    When visit "123" url
+    When get current url
+    When get window title
 
-    #text ile click butona direk click ile yapıyordu bunu sanırım
+    When scroll top of the page
+    When scroll bottom of the page
+    When scroll 250 px up the page
+    When scroll 250 px down the page
+
+    When focus to element by "Agree Button" text
+
+    When go back
+    When go forward
+    When refresh the page
+
+    When accept alert
+    When dismiss alert
+
+    When switch to last window
+    When switch to first window
+    When switch to window by "title" title
+
+    When close window
+    When maximize window
+    When get window size
+    When resize window to 123 width 123 height
+    # BROWSER UTIL
+    ####################################
+
+    ########################################################################
+
+    ####################################
+    # ASSERTION
+    Then verify below texts are displayed:
+      | abc |
+      | def |
+    Then verify below texts are not displayed:
+      | abc |
+      | def |
+    Then verify "text" text is displayed
+    Then verify "text" text is not displayed
+
+    Then verify "css_selector" element has "bla bla" text
+    Then verify "css_selector" element has not "bla bla" text
+
+    Then verify "bla bla" button is displayed
+    Then verify "bla bla" button is not displayed
+
+    Then verify "bla bla" button is enabled
+    Then verify "bla bla" button is disabled
+
+    Then verify current url is "blabla"
+    Then verify current path is "/blabla"
+
+    Then verify page title is "text"
+    Then verify page title contains "text"
+
+    Then verify "bla bla" alert message is displayed
+    Then verify "bla bla" alert message is not displayed
+
+    Then verify "checkbox" checkbox is checked
+    Then verify "checkbox" checkbox is unchecked
+
+    Then verify "radioButtonName" radio button is selected
+    Then verify "radioButtonName" radio button is not selected
+
+    Then verify "cars" dropdown contains "audi" option
+    Then verify "cars" dropdown does not contain "audi" option
+    Then verify "cars" dropdown contains below options:
+      | au |
+      | bm |
+
+    Then verify "audi" options is selected from "cars" dropdown
+    Then verify "audi" options is not selected from "cars" dropdown
+    # ASSERTION
+    ####################################
+
+    ########################################################################
+
+    ####################################
+    # ACTION
+    When fill "inputName" with "value"
+
+    #bunun icin faker kullanalim, hangi random value'lari kullanacagimiza karar verelim
+    When fill "inputName" with random email|phoneNumber|name|blabla...
+    When fill inputs:
+      | name    | bla    |
+      | surname | blabla |
+
+    When click "linkName" link
     When click "buttonName" button
 
-    #text e click linktext ile
-    When click "text" text
+    When check "blabla" checkbox
+    When uncheck "blabla" checkbox
 
-    #açılır menüde bir module gitmek için hover over yapıp dropdownda click with link text
-    When click "link" under "menu"
+    When choose "Female" radio button
 
-    #box name e key gönderme
-    When fill inputs:
-      | key | value |
-    #box key aynı cümle ile
-    When fill "inputName" inputBox with "value"
-
-    #scroll yapmak için. JS executor ile yapabiliriz hazır yoksa
-    When scroll down the page
-
-    #scroll yapmak için. JS executor ile yapabiliriz hazır yoksa
-    When scroll up the page
-
-
-
-    #checkbox checked
-    When check "checkboxName" checkbox
-
-    #checkbox unchecked aynı şekilde
-    When uncheck "checkboxName" checkbox
-
+    When clear "inputBoxName" input
 
     #dropdown seçimi, burda select değilse hata fırlat yapabiliriz ya da select
     #olmayan durumlar için custom metod yazabiliriz.
     When select "optionsName" from "dropboxName" dropdown
 
-    #clear the inputbox
-    When clear "inputBoxName" inputBox
-
     #enter a bas, bunu string ile herhangi bir tuşa da çevirebiliriz
-    When press enter button
+    When press "blabla locator" enter
+    # ACTION
+    ####################################
 
-    #pop up dismiss js executor ile js popup dismiss
-    When dismiss popup
-
-    #refresh current page
-    When refreshes the page
-
-    #url naivgation
-    When navigate to "someURL" page
+    #açılır menüde bir module gitmek için hover over yapıp dropdownda click with link text
+    When click "link" under "menu"
 
     #hover over element, text ile bul hover et
     When hover over "elementName"
-
-    #tablar arası geçiş yaparken title a göre geç diyebiliriz
-    When navigate window with "title" title
-
-    #last tab
-    When navigate to last window
-
-    #first tab
-    When navigate to first window
-
-    #sayfada text var mı
-    Then verify "text" text is displayed
-    Then verify "text" text is not displayed
-
-#    #element adıyla text var mı
-#    Then verify "element" includes "text" text
-#    Then The "element" should not include "text" text
-
-    #button gösteriliyor mu
-    Then verify "buttonName" button is displayed
-    Then verify "buttonName" button is not displayed
-
-
-    #button gösteriliyor mu
-    Then verify "buttonName" button is enabled
-    Then verify "buttonName" button is disabled
-
-    #checkbox seçildi mi
-    Then verify "checkbox" checkbox is selected
-    Then verify "checkbox" checkbox is not selected
-
-    #aynı şekilde
-    Then verify "radioButtonName" radio button is selected
-    Then verify "radioButtonName" radio button is not selected
-
-    #page title
-    Then verify title is "text"
-    Then verify title contains "text"
-
-    #dropdown option var mı
-    Then verify "dropdownName" dropdown contains "option" option
