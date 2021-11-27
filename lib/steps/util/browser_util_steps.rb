@@ -17,7 +17,6 @@ begin
   end
 
   When(/^focus to element by "([^"]*)" text$/) do |text|
-    #TODO: capybara'nin kendi scroll_to metodu var. incele
     scroll_to(find(xpath: "//*[contains(text(), '#{text}')]"))
   end
 
@@ -25,11 +24,19 @@ begin
     page.evaluate_script('window.location.reload()')
   end
 
-  When(/^switch to (last window)$/) do |arg|
+  When(/^open a (new window)$/) do |args|
+    open_new_window(:window)
+  end
+
+  When(/^open a (new tab)$/) do |args|
+    open_new_window
+  end
+
+  When(/^switch to (last window|last tab)$/) do |arg|
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.last)
   end
 
-  When(/^switch to (first window)$/) do |arg|
+  When(/^switch to (first window|first tab)$/) do |arg|
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
   end
 
@@ -42,11 +49,11 @@ begin
   end
 
   When(/^get window size$/) do
-    size
+    page.driver.browser.manage.window.size
   end
 
   When(/^close window$/) do
-    close
+    page.driver.browser.close
   end
 
   When(/^get current url$/) do
@@ -89,3 +96,4 @@ rescue Exception => exception
   puts exception
 
 end
+

@@ -13,20 +13,20 @@ gem install bdd-helper
 # Example
 - assertion
 ```
-page should contain "Test" content
+verify "text" text is displayed
 
-page should contain "css" "#test .form" web element
+verify "css_selector" element has "bla bla" text
 
-"Agree" checkbox should be checked
+verify "checkbox" checkbox is checked
 ```
 
 ...
 
 - click
 ```
-click "Save" button by text
+click "buttonName" button
 
-click type "id" value "save" web element
+click "linkName" link
 ```
 ...
 
@@ -34,17 +34,16 @@ click type "id" value "save" web element
 ```
 fill "Phone Number" with "5555555555"
 
-fill type "id" value "mobilePhone" web element with "5555555555"
+fill "inputName" with random email
 ```
 ...
 
 - select
 ```
-select "Country" as "United States" from dropdown
+select "Country" from "United States" dropdown
 
-"United States" should be selected for "Country" dropdown
+verify "United States" options is selected from "Country" dropdown
 
-"Country" dropdown should contain "United States" option
 ```
 ...
 

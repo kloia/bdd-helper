@@ -7,11 +7,7 @@ require 'rspec/expectations'
 require 'rspec/matchers'
 require 'selenium/webdriver'
 require 'selenium/webdriver/common/wait'
+require 'faker'
 
-require 'steps/assertion'
-require 'steps/browser'
-require 'steps/check'
-require 'steps/click'
-require 'steps/fill'
-require 'steps/select'
-require 'steps/unclassified'
+Dir["#{Dir.pwd}/lib/steps/**/*.rb"].each { |file| require file }
+Dir["#{Dir.pwd}/lib/steps_old/**/*.rb"].each { |file| require file }

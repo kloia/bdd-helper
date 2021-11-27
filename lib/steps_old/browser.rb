@@ -1,35 +1,33 @@
-require_relative 'config'
+begin
+  When(/^navigate browser to "([^"]*)" url$/) do |url|
+    visit url
+  end
 
-include BaseConstants
+  And(/^switch window to (first|last) opened$/) do |condition|
+    if condition == 'first'
+      page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
+    elsif condition == 'last'
+      page.driver.browser.switch_to.window(page.driver.browser.window_handles.last)
+    end
+  end
 
-# And(/^refresh the page$/) do
-#   page.evaluate_script('window.location.reload()')
-#   sleep 1
-# end
+  Then(/^user should redirected to "([^"]*)" path$/) do |path|
+    page.should have_current_path(path, wait: $timeout)
+  end
 
-# When(/^navigate browser to "([^"]*)" url$/) do |url|
-#   visit url
-# end
+  Then(/^alert message (should|should_not) be "([^"]*)"$/) do |condition, message|
+    if condition == 'should'
+      resp = page.driver.browser.switch_to.alert.text
+      resp.should == message
 
-# And(/^switch window to (first|last) opened$/) do |condition|
-#   if condition == 'first'
-#     page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
-#   elsif condition == 'last'
-#     page.driver.browser.switch_to.window(page.driver.browser.window_handles.last)
-#   end
-# end
+    elsif condition == 'should_not'
+      resp = page.driver.browser.switch_to.alert.text
+      resp.should_not == message
+    end
+  end
 
-# Then(/^user should redirected to "([^"]*)" path$/) do |path|
-#   page.should have_current_path(path, wait: $timeout)
-# end
+rescue Exception => exception
+  puts exception
 
-# Then(/^alert message (should|should_not) be "([^"]*)"$/) do |condition, message|
-#   if condition == 'should'
-#     resp = page.driver.browser.switch_to.alert.text
-#     resp.should == message
-#
-#   elsif condition == 'should_not'
-#     resp = page.driver.browser.switch_to.alert.text
-#     resp.should_not == message
-#   end
-# end
+end
+

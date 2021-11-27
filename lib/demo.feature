@@ -1,6 +1,5 @@
 Feature: demo features
 
-  #Capybara konfigurasyonu bdd-helper'da yaptirmaliyiz url vs gormesi icin ama nasil?
 
   Scenario: steps
     ####################################
@@ -24,8 +23,12 @@ Feature: demo features
     When accept alert
     When dismiss alert
 
+    When open a new window
     When switch to last window
     When switch to first window
+    When open a new tab
+    When switch to first tab
+    When switch to last tab
     When switch to window by "title" title
 
     When close window
@@ -88,9 +91,13 @@ Feature: demo features
     ####################################
     # ACTION
     When fill "inputName" with "value"
+    When fill "inputName" with random first name
+    When fill "inputName" with random last name
+    When fill "inputName" with random email
+    When fill "inputName" with random phoneNumber
+    When fill "inputName" with random address
+    When fill "inputName" with random zipCode
 
-    #bunun icin faker kullanalim, hangi random value'lari kullanacagimiza karar verelim
-    When fill "inputName" with random email|phoneNumber|name|blabla...
     When fill inputs:
       | name    | bla    |
       | surname | blabla |
@@ -105,17 +112,34 @@ Feature: demo features
 
     When clear "inputBoxName" input
 
-    #dropdown seçimi, burda select değilse hata fırlat yapabiliriz ya da select
-    #olmayan durumlar için custom metod yazabiliriz.
     When select "optionsName" from "dropboxName" dropdown
 
-    #enter a bas, bunu string ile herhangi bir tuşa da çevirebiliriz
     When press "blabla locator" enter
-    # ACTION
+    When press "blabla locator" delete
+    When press "blabla locator" down
+    When press "blabla locator" up
+    When press "blabla locator" left
+    When press "blabla locator" right
+
+
+    When click "link" under "menu"
+    When click "link" item 0 under "menu" menu item 0
+
+    When hover over "text"
+
+        # ACTION
     ####################################
 
-    #açılır menüde bir module gitmek için hover over yapıp dropdownda click with link text
-    When click "link" under "menu"
 
-    #hover over element, text ile bul hover et
-    When hover over "elementName"
+     ####################################
+    # UNCLASSIFIED
+
+    When hover to "selector type" value "web element" web element
+    When wait "time" seconds
+    When generate "count" char random string and type into type "selector type" value "web element"
+    When execute javascript code "code"
+
+        # UNCLASSIFIED
+     ####################################
+
+

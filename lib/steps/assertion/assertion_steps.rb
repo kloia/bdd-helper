@@ -9,7 +9,6 @@ begin
   end
 
   Then(/^verify "([^"]*)" element has "([^"]*)" text$/) do |selector, text|
-    # selector should be a css selector
     page.should have_selector(selector, text: text)
   end
 
@@ -23,7 +22,7 @@ begin
   end
 
   Then(/^verify "([^"]*)" button is not displayed$/) do |button|
-    page.should_not have_button(button)
+    page.should_not have_button(button, wait: $timeout)
   end
 
   Then(/^verify "([^"]*)" button is enabled$/) do |button|
@@ -83,8 +82,6 @@ begin
   end
 
   Then(/^verify "([^"]*)" dropdown contains "([^"]*)" option$/) do |dropdown, option_text|
-    # https://stackoverflow.com/a/8229536/3864693
-    # farkli alternatifler de var, buradaki option'lari list olarak alip da kontrol ettirebiliriz
     expect(page).to have_select(dropdown, :options => [option_text])
     page.should have_select(dropdown, with_options: [option_text])
   end
