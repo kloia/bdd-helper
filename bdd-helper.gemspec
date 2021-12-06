@@ -2,7 +2,7 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name        = 'bdd-helper'
-  s.version     = '0.0.3'
+  s.version     = '1.0'
   s.date        = '2017-09-17'
   s.summary     = "Helper step definitions for Gherkin"
   s.description = "Package of helper step definitions for BDD testing with Gherkin and Cucumber"

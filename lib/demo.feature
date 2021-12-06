@@ -24,6 +24,7 @@ Feature: demo features
     When dismiss alert
 
     When open a new window
+    When switch to first window
     When switch to last window
     When switch to first window
     When open a new tab
@@ -51,6 +52,7 @@ Feature: demo features
     Then verify "text" text is displayed
     Then verify "text" text is not displayed
 
+
     Then verify "css_selector" element has "bla bla" text
     Then verify "css_selector" element has not "bla bla" text
 
@@ -69,17 +71,18 @@ Feature: demo features
     Then verify "bla bla" alert message is displayed
     Then verify "bla bla" alert message is not displayed
 
+
     Then verify "checkbox" checkbox is checked
     Then verify "checkbox" checkbox is unchecked
 
     Then verify "radioButtonName" radio button is selected
     Then verify "radioButtonName" radio button is not selected
-
     Then verify "cars" dropdown contains "audi" option
     Then verify "cars" dropdown does not contain "audi" option
     Then verify "cars" dropdown contains below options:
       | au |
       | bm |
+
 
     Then verify "audi" options is selected from "cars" dropdown
     Then verify "audi" options is not selected from "cars" dropdown
@@ -111,7 +114,6 @@ Feature: demo features
     When choose "Female" radio button
 
     When clear "inputBoxName" input
-
     When select "optionsName" from "dropboxName" dropdown
 
     When press "blabla locator" enter
@@ -132,14 +134,14 @@ Feature: demo features
 
 
      ####################################
-    # UNCLASSIFIED
+    # CUSTOMIZED
 
     When hover to "selector type" value "web element" web element
     When wait "time" seconds
     When generate "count" char random string and type into type "selector type" value "web element"
     When execute javascript code "code"
 
-        # UNCLASSIFIED
+        # CUSTOMIZED
      ####################################
 
 

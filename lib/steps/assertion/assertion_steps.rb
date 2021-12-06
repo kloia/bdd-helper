@@ -33,8 +33,8 @@ begin
     page.should have_button(button, disabled: true)
   end
 
-  Then(/^verify current url is "([^"]*)"$/) do |current_url|
-    current_url.should == URI.parse(current_url)
+  Then(/^verify current url is "([^"]*)"$/) do |expected_url|
+    current_url.should == expected_url
   end
 
   Then(/^verify current path is "([^"]*)"$/) do |current_path|
@@ -94,7 +94,7 @@ begin
     table.raw.each { |raw| page.should have_select(dropdown, with_options: [raw[0]]) }
   end
 
-  Then(/^verify "([^"]*)" dropdown does not contain below options:$/) do |arg, table|
+  Then(/^verify "([^"]*)" dropdown does not contain below options:$/) do |dropdown, table|
     table.raw.each { |raw| page.should_not have_select(dropdown, with_options: [raw[0]]) }
   end
 

@@ -10,4 +10,3 @@ require 'selenium/webdriver/common/wait'
 require 'faker'
 
 Dir["#{Dir.pwd}/lib/steps/**/*.rb"].each { |file| require file }
-Dir["#{Dir.pwd}/lib/steps_old/**/*.rb"].each { |file| require file }

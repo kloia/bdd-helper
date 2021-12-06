@@ -13,38 +13,40 @@ gem install bdd-helper
 # Example
 - assertion
 ```
+#Finds "text" on the page and verify
 verify "text" text is displayed
 
-verify "css_selector" element has "bla bla" text
+Finds a element by css_selector and verify "verify_text"
+verify "css_selector" element has "verify_text" text
 
+Finds a checkbox by label, name or id and verify checked
 verify "checkbox" checkbox is checked
 ```
 
-...
-
 - click
 ```
-click "buttonName" button
+#Finds a button by id, text or title and clicks it
+click "locator" button
 
-click "linkName" link
+#Finds a link by id, text or title and clicks it
+click "locator" link
 ```
-...
 
 - fill
 ```
-fill "Phone Number" with "5555555555"
+#will fill in a fillable field with name, id, or label text matching 'locator'
+fill "locator" with "5555555555"
 
-fill "inputName" with random email
+#will fill random email in a fillable field with name, id, or label text matching 'locator'
+fill "locator" with random email
 ```
-...
 
 - select
 ```
-select "Country" from "United States" dropdown
-
-verify "United States" options is selected from "Country" dropdown
+#The select box can be found via its name, id or label text. The option can be found by its text. Web element must be select box
+select "option" from "dropdown_id_name_or_label_text" dropdown
 
 ```
-...
+
 
 # NOTE: To auto completing bdd-helper steps in RubyMine, IntelliJ IDEs, go to Preferences/Languages & Frameworks/Cucumber section and add "bdd-helper" to the list.
