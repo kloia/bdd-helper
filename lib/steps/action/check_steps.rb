@@ -1,5 +1,6 @@
-begin
+# frozen_string_literal: true
 
+begin
   When(/^check "([^"]*)" checkbox$/) do |checkbox_name_id_or_label|
     check(checkbox_name_id_or_label)
   end
@@ -7,8 +8,6 @@ begin
   When(/^uncheck "([^"]*)" checkbox$/) do |checkbox_name_id_or_label|
     uncheck(checkbox_name_id_or_label)
   end
-
-rescue Exception => exception
-  puts exception
-
+rescue StandardError => e
+  puts e
 end

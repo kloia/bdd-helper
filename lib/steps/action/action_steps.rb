@@ -1,26 +1,28 @@
+# frozen_string_literal: true
+
 begin
 
-  When(/^press "([^"]*)" (enter)$/) do |locator,arg|
+  When(/^press "([^"]*)" (enter)$/) do |locator, arg|
     find(locator).native.send_keys(:return)
   end
 
-  When(/^press "([^"]*)" (down)$/) do |locator,arg|
+  When(/^press "([^"]*)" (down)$/) do |locator, arg|
     find(locator).native.send_keys(:down)
   end
 
-  When(/^press "([^"]*)" (up)$/) do |locator,arg|
+  When(/^press "([^"]*)" (up)$/) do |locator, arg|
     find(locator).native.send_keys(:up)
   end
 
-  When(/^press "([^"]*)" (delete)$/) do |locator,arg|
+  When(/^press "([^"]*)" (delete)$/) do |locator, arg|
     find(locator).native.clear
   end
 
-  When(/^press "([^"]*)" (left)$/) do |locator,arg|
+  When(/^press "([^"]*)" (left)$/) do |locator, arg|
     find(locator).native.send_keys(:left)
   end
 
-  When(/^press "([^"]*)" (right)$/) do |locator,arg|
+  When(/^press "([^"]*)" (right)$/) do |locator, arg|
     find(locator).native.send_keys(:right)
   end
 
@@ -29,9 +31,8 @@ begin
     find(xpath: "//*[text()='#{text}']").hover
   end
 
-
-rescue Exception => exception
-  puts exception
+rescue StandardError => e
+  puts e
 
 end
 

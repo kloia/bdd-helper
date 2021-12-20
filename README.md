@@ -10,16 +10,25 @@ It combines some of major actions on a browser like click, fill, select ...
 gem install bdd-helper
 ```
 
+#Configure
+Configure BddHelper to suit your needs.
+```
+BddHelper.configure do |config|
+  config.timeout = 15  #(Default: 20)
+  config.base_url = 'http://www.example.com'
+  config.environment = 'staging'
+end
+```
 # Example
 - assertion
 ```
 #Finds "text" on the page and verify
 verify "text" text is displayed
 
-Finds a element by css_selector and verify "verify_text"
+#Finds a element by css_selector and verify "verify_text"
 verify "css_selector" element has "verify_text" text
 
-Finds a checkbox by label, name or id and verify checked
+#Finds a checkbox by label, name or id and verify checked
 verify "checkbox" checkbox is checked
 ```
 

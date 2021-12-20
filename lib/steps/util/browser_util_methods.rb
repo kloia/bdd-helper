@@ -1,17 +1,13 @@
-begin
+ class BrowserUtilMethods
 
-  class BrowserUtilMethods
-
-    def scroll_to(element)
-      script = <<-JS
+   def scroll_to(element)
+     script = <<-JS
       arguments[0].scrollIntoView(true);
-      JS
-      page.execute_script(script, element.native)
-      # Capybara.current_session.driver.browser.execute_script(script, element.native)
-    end
+     JS
+     page.execute_script(script, element.native)
+     # Capybara.current_session.driver.browser.execute_script(script, element.native)
+   end
 
-  rescue Exception => exception
-    puts exception
-
+ rescue StandardError => e
+   puts e
   end
-end

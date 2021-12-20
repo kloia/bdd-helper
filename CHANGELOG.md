@@ -5,6 +5,7 @@ CHANGES IN VERSION 1.0 (FROM 0.0.3)
  * Step names has changed.
  * Added more actions and assertions with new steps.
  * Some steps have been removed.
+ * Added bdd-helper configure
  * Update dependencies:
  ```
    -- 'capybara', '~> 3.36' 

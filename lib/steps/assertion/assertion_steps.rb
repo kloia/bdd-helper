@@ -5,7 +5,7 @@ begin
   end
 
   Then(/^verify "([^"]*)" text is not displayed$/) do |text|
-    page.should_not have_text(text, wait: $timeout)
+    page.should_not have_text(text, wait: BddHelper.timeout)
   end
 
   Then(/^verify "([^"]*)" element has "([^"]*)" text$/) do |selector, text|
@@ -14,15 +14,15 @@ begin
 
   Then(/^verify "([^"]*)" element has not "([^"]*)" text$/) do |selector, text|
     # selector should be a css selector
-    page.should_not have_selector(selector, text: text, wait: $timeout)
+    page.should_not have_selector(selector, text: text, wait: BddHelper.timeout)
   end
 
   Then(/^verify "([^"]*)" button is displayed$/) do |button|
-    page.should have_button(button, wait: $timeout)
+    page.should have_button(button, wait: BddHelper.timeout)
   end
 
   Then(/^verify "([^"]*)" button is not displayed$/) do |button|
-    page.should_not have_button(button, wait: $timeout)
+    page.should_not have_button(button, wait: BddHelper.timeout)
   end
 
   Then(/^verify "([^"]*)" button is enabled$/) do |button|
@@ -82,7 +82,7 @@ begin
   end
 
   Then(/^verify "([^"]*)" dropdown contains "([^"]*)" option$/) do |dropdown, option_text|
-    expect(page).to have_select(dropdown, :options => [option_text])
+    expect(page).to have_select(dropdown, options: [option_text])
     page.should have_select(dropdown, with_options: [option_text])
   end
 
@@ -105,8 +105,6 @@ begin
   Then(/^verify "([^"]*)" options is not selected from "([^"]*)" dropdown$/) do |option, dropdown|
     page.should_not have_select(dropdown, selected: option)
   end
-
-rescue Exception => exception
-  puts exception
-
+rescue StandardError => e
+  puts e
 end

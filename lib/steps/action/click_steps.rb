@@ -12,13 +12,12 @@ begin
     find(menu).hover.click_link(link)
   end
 
-  When(/^click "([^"]*)" item (\d+) under "([^"]*)" menu item (\d+)$/) do |link, linkItem, menu, menuItem|
-    page.all(:xpath, "//*[text()='#{menu}']")[menuItem].hover
-    page.all(:link ,link)[linkItem].click
+  When(/^click "([^"]*)" item (\d+) under "([^"]*)" menu item (\d+)$/) do |link, link_item, menu, menu_item|
+    page.all(:xpath, "//*[text()='#{menu}']")[menu_item].hover
+    page.all(:link, link)[link_item].click
   end
 
-rescue Exception => exception
-  puts exception
-
+rescue StandardError => e
+  puts e
 end
 

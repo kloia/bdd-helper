@@ -69,11 +69,15 @@ begin
   end
 
   When(/^visit base page$/) do
-    visit '/'
+    visit BddHelper.base_url
   end
 
   When(/^visit "([^"]*)" url$/) do |url|
     visit url
+  end
+
+  When(/^visit relative url "([^"]*)"$/) do |url|
+    visit BddHelper.base_url + url
   end
 
   When(/^maximize window$/) do
@@ -92,8 +96,7 @@ begin
     title
   end
 
-rescue Exception => exception
-  puts exception
-
+rescue StandardError => e
+  puts e
 end
 
