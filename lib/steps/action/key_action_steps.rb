@@ -26,7 +26,6 @@ begin
     find(locator).native.send_keys(:right)
   end
 
-
   When(/^hover over "([^"]*)"$/) do |text|
     find(xpath: "//*[text()='#{text}']").hover
   end

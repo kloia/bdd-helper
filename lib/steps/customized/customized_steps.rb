@@ -5,7 +5,7 @@ begin
     find(:"#{web_element_type}", web_element).trigger(:mouseover)
   end
 
-  When(/^wait "([^"]*)" seconds$/) do |sec_value|
+  When(/^wait "([^"]*)" (?:second|seconds)$/) do |sec_value|
     sleep sec_value.to_i
   end
 

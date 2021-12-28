@@ -79,7 +79,7 @@ Feature: demo features
     Then verify "radioButtonName" radio button is not selected
     Then verify "cars" dropdown contains "audi" option
     Then verify "cars" dropdown does not contain "audi" option
-    Then verify "cars" dropdown contains below options:
+    Then verify "cars" dropdown contains the options below:
       | au |
       | bm |
 
@@ -97,9 +97,9 @@ Feature: demo features
     When fill "inputName" with random first name
     When fill "inputName" with random last name
     When fill "inputName" with random email
-    When fill "inputName" with random phoneNumber
+    When fill "inputName" with random phone number
     When fill "inputName" with random address
-    When fill "inputName" with random zipCode
+    When fill "inputName" with random zip code
 
     When fill inputs:
       | name    | bla    |

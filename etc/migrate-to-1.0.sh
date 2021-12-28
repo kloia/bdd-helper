@@ -48,12 +48,12 @@ s/\"\([^\"]*\)\" should be selected for \"\([^\"]*\)\" dropdown/verify \"\1\" op
 s/\"\([^\"]*\)\" should_not be selected for \"\([^\"]*\)\" dropdown/verify \"\1\" options is not selected from \"\2\" dropdown/g;
 s/\"\([^\"]*\)\" dropdown should contain \"\([^\"]*\)\" option/verify \"\1\" dropdown contains \"\2\" option/g;
 s/\"\([^\"]*\)\" dropdown should_not contain \"\([^\"]*\)\" option/verify \"\1\" dropdown does not contain \"\2\" option/g;
-s/\"\([^\"]*\)\" dropdown should contain following options:/verify \"\1\" dropdown contains below options:/g;
-s/\"\([^\"]*\)\" dropdown should_not contain following options:/verify \"\1\" dropdown does not contain below options:/g;
+s/\"\([^\"]*\)\" dropdown should contain following options:/verify \"\1\" dropdown contains the options below:/g;
+s/\"\([^\"]*\)\" dropdown should_not contain following options:/verify \"\1\" dropdown does not contain the options below:/g;
 
 s/fill input boxes with these values:/fill inputs:/g;
 s/fill \"\([^\"]*\)\" with random name/fill \"\1\" with random first name/g;
-s/fill \"\([^\"]*\)\" with random gsm/fill \"\1\" with random phoneNumber/g;
+s/fill \"\([^\"]*\)\" with random gsm/fill \"\1\" with random phone number/g;
 
 s/click \"\([^\"]*\)\" link by id/click \"\1\" link/g;
 s/click \"\([^\"]*\)\" link by title/click \"\1\" link/g;

@@ -90,11 +90,11 @@ begin
     page.should_not have_select(dropdown, with_options: [option_text])
   end
 
-  Then(/^verify "([^"]*)" dropdown contains below options:$/) do |dropdown, table|
+  Then(/^verify "([^"]*)" dropdown contains the options below:$/) do |dropdown, table|
     table.raw.each { |raw| page.should have_select(dropdown, with_options: [raw[0]]) }
   end
 
-  Then(/^verify "([^"]*)" dropdown does not contain below options:$/) do |dropdown, table|
+  Then(/^verify "([^"]*)" dropdown does not contain the options below:$/) do |dropdown, table|
     table.raw.each { |raw| page.should_not have_select(dropdown, with_options: [raw[0]]) }
   end
 
