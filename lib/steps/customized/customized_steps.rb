@@ -5,7 +5,7 @@ begin
     find(:"#{web_element_type}", web_element).trigger(:mouseover)
   end
 
-  When(/^wait "([^"]*)" (?:second|seconds)$/) do |sec_value|
+  When(/^wait (\d+) (?:second|seconds)$/) do |sec_value|
     sleep sec_value.to_i
   end
 
@@ -17,8 +17,8 @@ begin
 
   And(/^execute javascript code "([^"]*)"/) do |code|
     page.execute_script(code)
-    sleep 2
   end
+
 rescue StandardError => e
   puts e
 end
