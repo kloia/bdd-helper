@@ -83,7 +83,6 @@ Feature: demo features
       | au |
       | bm |
 
-
     Then verify "audi" options is selected from "cars" dropdown
     Then verify "audi" options is not selected from "cars" dropdown
     # ASSERTION
@@ -123,25 +122,20 @@ Feature: demo features
     When press "blabla locator" left
     When press "blabla locator" right
 
-
     When click "link" under "menu"
     When click "link" item 0 under "menu" menu item 0
 
     When hover over "text"
-
-        # ACTION
+    # ACTION
     ####################################
 
+    ########################################################################
 
-     ####################################
+    ####################################
     # CUSTOMIZED
-
     When hover to "selector type" value "web element" web element
     When wait "time" seconds
     When generate "count" char random string and type into type "selector type" value "web element"
     When execute javascript code "code"
-
-        # CUSTOMIZED
-     ####################################
-
-
+    # CUSTOMIZED
+    ####################################
