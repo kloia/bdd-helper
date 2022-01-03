@@ -9,4 +9,16 @@ require 'selenium/webdriver'
 require 'selenium/webdriver/common/wait'
 require 'faker'
 
-Dir["#{Dir.pwd}/lib/steps/**/*.rb"].each { |file| require file }
+require 'steps/action/check_steps'
+require 'steps/action/choose_steps'
+require 'steps/action/click_steps'
+require 'steps/action/fill_steps'
+require 'steps/action/key_action_steps'
+require 'steps/action/select_steps'
+require 'steps/assertion/assertion_steps'
+require 'steps/customized/customized_steps'
+require 'steps/util/browser_util_steps'
+require 'steps/util/browser_util_methods'
+require 'steps/config'
+
+require_relative 'steps/config'

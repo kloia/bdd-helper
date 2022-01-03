@@ -15,12 +15,13 @@ gem install bdd-helper
 # Configuration
 
 Configure `BddHelper` to suit your needs.
+- timeout (Numeric = 20) : The maximum number of seconds to wait for asynchronous processes to finish.
+- base_url (String nil) : This parameter specifies the default host of the test automation project that you developed and performs your operations through this host, must be a valid URL e.g. http://www.example.com
 
 ```
 BddHelper.configure do |config|
-  config.timeout = 15  #(Default: 20)
+  config.timeout = 15 
   config.base_url = 'http://www.example.com'
-  config.environment = 'staging'
 end
 ```
 
@@ -42,7 +43,7 @@ end
 **Clicks**
 
 * Clicking a button (button can be found by its `id`, `text` or `title`)
-    * `click "locator" button`
+    * `click "login" button`
 
 
 * Clicking a link (button can be found by its `id`, `text` or `title`)
@@ -56,6 +57,11 @@ end
 
 * Filling an input with a random value (input can be found by its `name`, `id` or `label text`)
     * `fill "Email" with random email`
+    * `fill "Phone Number" with random phone number`
+    * `fill "First Name" with random first name`
+    * `fill "Last Name" with random last name`
+    * `fill "Address" with random address`
+    * `fill "Zip Code" with random zip code`
 
 **Selects**
 
@@ -64,6 +70,25 @@ end
   its `text`)
     * `select "Germany" from "Country" dropdown`
 
+**Browser**
+
+* Navigate to URL defined in `BddHelper` configuration
+    * `visit base page`
+
+
+* Close current window, or the browser if no windows are left.
+    * `close window`
+
+
+* Switches to first or last window
+    * `switch to last window`
+    * `switch to first window`
+
+
+* Scroll to bottom or top of the page
+    * `scroll bottom of the page`
+    * `scroll up of the page`
+  
 # NOTE: To auto-completion of the steps steps in bdd-helper with RubyMine or IntelliJ IDEs
 
 * go to `Preferences` / `Languages & Frameworks` / `Cucumber`
