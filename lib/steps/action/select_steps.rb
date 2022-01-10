@@ -1,6 +1,4 @@
-require_relative '../config'
 begin
-
   When(/^select "([^"]*)" from "([^"]*)" dropdown$/) do |option, dropdown_id_name_or_label_text|
     ##
     # E.g : select "Country" as "United States" from dropdown

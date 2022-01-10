@@ -1,4 +1,3 @@
-require_relative '../config'
 begin
   When(/^click "([^"]*)" button$/) do |button_id_title_or_text|
     # E.g : click "Sign In" button

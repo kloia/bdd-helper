@@ -1,4 +1,3 @@
-require_relative '../config'
 begin
   When(/^fill "([^"]*)" with "([^"]*)"$/) do |locator, text|
     # E.g : fill "Name" with "John"

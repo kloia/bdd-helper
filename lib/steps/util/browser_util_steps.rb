@@ -1,6 +1,4 @@
-require_relative '../config'
 begin
-
   When(/^scroll (\d+) px (down) the page$/) do |pixel, arg|
     # E.g : scroll 500 px down the page
     # E.g : page.execute_script("window.scrollBy(0,50)")

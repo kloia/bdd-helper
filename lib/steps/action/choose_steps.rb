@@ -1,4 +1,3 @@
-require_relative '../config'
 begin
   When(/^choose "([^"]*)" radio button$/) do |radio_button_id_name_or_label|
     # E.g : choose "Male" radio button

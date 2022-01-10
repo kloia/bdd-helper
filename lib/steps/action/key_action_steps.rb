@@ -1,4 +1,3 @@
-require_relative '../config'
 begin
   When(/^press "([^"]*)" (enter)$/) do |locator, arg|
     # E.g : press "#login" enter
@@ -46,7 +45,7 @@ begin
     # E.g : hover over "Menu"
     # E.g : find  xpath: "//*[text()='Menu']", wait: BddHelper.timeout ===>> to hover text matched
     # can be text
-    find(xpath: "//*[text()='#{text}']", wait: BddHelper.timeout).hover
+    find(:xpath, "//*[text()='#{text}']", wait: BddHelper.timeout).hover
   end
 
 rescue StandardError => e

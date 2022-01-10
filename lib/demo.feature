@@ -135,7 +135,7 @@ Feature: demo features
     # CUSTOMIZED
     When hover to "selector type" value "web element" web element
     When wait 2 seconds
-    When generate "count" char random string and type into type "selector type" value "web element"
+    When generate 10 char random string and type into type "selector type" value "web element"
     When execute javascript code "code"
     # CUSTOMIZED
     ####################################

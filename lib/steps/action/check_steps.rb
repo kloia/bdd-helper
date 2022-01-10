@@ -1,4 +1,3 @@
-require_relative '../config'
 begin
   When(/^check "([^"]*)" checkbox$/) do |checkbox_name_id_or_label|
     # E.g : check "Female" checkbox

@@ -1,4 +1,3 @@
-require_relative '../config'
 begin
   Then(/^verify "([^"]*)" text is displayed$/) do |text|
     # E.g : verify "Thank you for filling in the form" text is displayed
@@ -94,7 +93,7 @@ begin
   end
 
   Then(/^verify below texts are not displayed:$/) do |table|
-    # E.g : Then verify below texts are displayed:
+    # E.g : Then verify below texts are not displayed:
     #       | Welcome   |
     #       | Thank you |
     # E.g : table.raw.each { |raw| page.should have_text(table[0], wait: BddHelper.timeout) } ===>> to verify that not all text in the table is on the page
@@ -146,7 +145,7 @@ begin
     # E.g : verify "Country" dropdown contains "United States" option
     # E.g : expect(page).to have_select("Country", options: "United States", wait: BddHelper.timeout) ===>> to verify that matched option is in matched dropdown
     # dropdown can be id, name, label
-    expect(page).to have_select(dropdown, options: [option_text], wait: BddHelper.timeout)
+    page.should have_select(dropdown, with_options: [option_text], wait: BddHelper.timeout)
   end
 
   Then(/^verify "([^"]*)" dropdown does not contain "([^"]*)" option$/) do |dropdown, option_text|

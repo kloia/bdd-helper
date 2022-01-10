@@ -1,6 +1,6 @@
 module BddHelper
   class << self
-    attr_accessor :timeout, :base_url, :environment
+    attr_accessor :timeout, :base_url
 
     def timeout
       @timeout || 20
@@ -12,10 +12,6 @@ module BddHelper
       end
 
       @base_url || nil
-    end
-
-    def environment
-      @environment || nil
     end
 
     def configure

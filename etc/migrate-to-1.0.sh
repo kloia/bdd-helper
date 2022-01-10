@@ -74,6 +74,8 @@ s/\"\([^\"]*\)\" checkbox should be checked/verify \"\1\" checkbox is checked/g;
 s/\"\([^\"]*\)\" checkbox should be unchecked/verify \"\1\" checkbox is unchecked/g;
 s/\"\([^\"]*\)\" radio button should be selected/verify \"\1\" radio button is selected/g;
 s/\"\([^\"]*\)\" radio button should be unselected/verify \"\1\" radio button is not selected/g;
+s/generate \"\([^\"]*\)\" char random string and type into type \"\([^\"]*\)\" value \"\([^\"]*\)\"/generate \1\ char random string and type into type \"\2\" value \"\3\"/g;
+s/wait \"\([^\"]*\)\" seconds/wait \1\ seconds/g;
 "
 
 for FILE in $FILES
