@@ -5,7 +5,7 @@ Feature: demo features
     ####################################
     # BROWSER UTIL
     When visit base page
-    When visit "123" url
+    When visit "http://www.example.com" url
     When get current url
     When get window title
 
@@ -30,7 +30,7 @@ Feature: demo features
     When open a new tab
     When switch to first tab
     When switch to last tab
-    When switch to window by "title" title
+    When switch to window by "Welcome" title
 
     When close window
     When maximize window
@@ -44,39 +44,39 @@ Feature: demo features
     ####################################
     # ASSERTION
     Then verify below texts are displayed:
-      | abc |
-      | def |
+      | Welcome   |
+      | Thank you |
     Then verify below texts are not displayed:
-      | abc |
-      | def |
+      | Welcome   |
+      | Thank you |
     Then verify "text" text is displayed
     Then verify "text" text is not displayed
 
 
-    Then verify "css_selector" element has "bla bla" text
-    Then verify "css_selector" element has not "bla bla" text
+    Then verify ".success-message" element has "Welcome" text
+    Then verify ".fail-message" element has not "Welcome" text
 
-    Then verify "bla bla" button is displayed
-    Then verify "bla bla" button is not displayed
+    Then verify "Login" button is displayed
+    Then verify "Sign In " button is not displayed
 
-    Then verify "bla bla" button is enabled
-    Then verify "bla bla" button is disabled
+    Then verify "Login" button is enabled
+    Then verify "Logout" button is disabled
 
-    Then verify current url is "blabla"
-    Then verify current path is "/blabla"
+    Then verify current url is "http:www.example.com"
+    Then verify current path is "/login"
 
-    Then verify page title is "text"
-    Then verify page title contains "text"
+    Then verify page title is "Welcome"
+    Then verify page title contains "Welcome"
 
-    Then verify "bla bla" alert message is displayed
-    Then verify "bla bla" alert message is not displayed
+    Then verify "Successful Login" alert message is displayed
+    Then verify "Incorrect login or password." alert message is not displayed
 
 
-    Then verify "checkbox" checkbox is checked
-    Then verify "checkbox" checkbox is unchecked
+    Then verify "Terms & Conditions" checkbox is checked
+    Then verify "Terms & Conditions" checkbox is unchecked
 
-    Then verify "radioButtonName" radio button is selected
-    Then verify "radioButtonName" radio button is not selected
+    Then verify "Male" radio button is selected
+    Then verify "Female" radio button is not selected
     Then verify "cars" dropdown contains "audi" option
     Then verify "cars" dropdown does not contain "audi" option
     Then verify "cars" dropdown contains the options below:
@@ -92,40 +92,40 @@ Feature: demo features
 
     ####################################
     # ACTION
-    When fill "inputName" with "value"
-    When fill "inputName" with random first name
-    When fill "inputName" with random last name
-    When fill "inputName" with random email
-    When fill "inputName" with random phone number
-    When fill "inputName" with random address
-    When fill "inputName" with random zip code
+    When fill "Username" with "value"
+    When fill "First Name" with random first name
+    When fill "Last Name" with random last name
+    When fill "Email" with random email
+    When fill "Phone Number" with random phone number
+    When fill "Address" with random address
+    When fill "Zip Code" with random zip code
 
     When fill inputs:
-      | name    | bla    |
-      | surname | blabla |
+      | username   | test user |
+      | password   | pas123    |
 
-    When click "linkName" link
-    When click "buttonName" button
+    When click "Contact Us" link
+    When click "Sign In" button
 
-    When check "blabla" checkbox
-    When uncheck "blabla" checkbox
+    When check "Terms & Conditions" checkbox
+    When uncheck "Privacy Policy" checkbox
 
-    When choose "Female" radio button
+    When choose "Male" radio button
 
-    When clear "inputBoxName" input
-    When select "optionsName" from "dropboxName" dropdown
+    When clear "First Name" input
+    When select "audi" from "cars" dropdown
 
-    When press "blabla locator" enter
-    When press "blabla locator" delete
-    When press "blabla locator" down
-    When press "blabla locator" up
-    When press "blabla locator" left
-    When press "blabla locator" right
+    When press "#login" enter
+    When press "#username" delete
+    When press ".list-selector" down
+    When press ".list-selector" up
+    When press ".list-selector" left
+    When press ".list-selector" right
 
-    When click "link" under "menu"
-    When click "link" item 0 under "menu" menu item 0
+    When click "Logout" under ".account-menu"
+    When click "Logout" item 0 under ".account-menu" menu item 0
 
-    When hover over "text"
+    When hover over "Account"
     # ACTION
     ####################################
 
@@ -133,9 +133,9 @@ Feature: demo features
 
     ####################################
     # CUSTOMIZED
-    When hover to "selector type" value "web element" web element
+    When hover to "css" value ".list_item" web element
     When wait 2 seconds
-    When generate 10 char random string and type into type "selector type" value "web element"
-    When execute javascript code "code"
+    When generate 10 char random string and type into type "css" value ".username"
+    When execute javascript code "window.location.reload()"
     # CUSTOMIZED
     ####################################

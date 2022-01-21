@@ -16,7 +16,7 @@ gem install bdd-helper
 
 Configure `BddHelper` to suit your needs.
 - timeout (Numeric = 20) : The maximum number of seconds to wait for asynchronous processes to finish.
-- base_url (String nil) : This parameter specifies the default host of the test automation project that you developed and performs your operations through this host, must be a valid URL e.g. http://www.example.com
+- base_url (String nil)  : This parameter specifies the default host of the test automation project that you developed and performs your operations through this host, must be a valid URL e.g. http://www.example.com
 
 ```
 BddHelper.configure do |config|
@@ -24,6 +24,18 @@ BddHelper.configure do |config|
   config.base_url = 'http://www.example.com'
 end
 ```
+
+# Global Context
+
+You should be add GlobalContext.new to Before method in your cucumber hooks. It reset global variables to default values for each scenario in an execution.
+
+
+```
+Before do |scenario|
+  GlobalContext.new
+end
+```
+
 
 # Examples
 
