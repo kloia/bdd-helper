@@ -1,51 +1,109 @@
 # bdd-helper
-bdd-helper gem is helping to create Cucumber scenarios fast. You don't have to create a lot of similar step definitions for your projects.
 
-bdd-helper covers your needs.
+`bdd-helper` is a Ruby gem to create Cucumber scenarios fastly. It...
 
-It combines some of major actions on a browser like click, fill, select ...
+* covers your needs
+* avoids creating multiple and similar step definitions in projects
+* combines most of the major actions like `clicking a button`, `filling an input` on browsers
 
-# Install
+# Installation
+
 ```
 gem install bdd-helper
 ```
 
-# Example
-- assertion
+# Configuration
+
+Configure `BddHelper` to suit your needs.
+- timeout (Numeric = 20)  : The maximum number of seconds to wait for asynchronous processes to finish.
+- base_url (String nil)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: This parameter specifies the default host of the test automation project that you developed and performs your operations through this host, must be a valid URL e.g. http://www.example.com
+
 ```
-page should contain "Test" content
-
-page should contain "css" "#test .form" web element
-
-"Agree" checkbox should be checked
+BddHelper.configure do |config|
+  config.timeout  = 15 
+  config.base_url = 'http://www.example.com'
+end
 ```
 
-...
+# Global Context
 
-- click
+You add GlobalContext.new to Before method in your cucumber hooks. It resets global variables to default values for each scenario in an execution.
+
+- $current_url  &nbsp;&nbsp;&nbsp;: The current url is assigned in the `get current url` step
+- $window_size  : The window size is assigned in the `get window size` step
+- $page_title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : The page title is assigned in the `get window title` step
 ```
-click "Save" button by text
-
-click type "id" value "save" web element
+Before do |scenario|
+  GlobalContext.new
+end
 ```
-...
 
-- fill
-```
-fill "Phone Number" with "5555555555"
 
-fill type "id" value "mobilePhone" web element with "5555555555"
-```
-...
+# Examples
 
-- select
-```
-select "Country" as "United States" from dropdown
+**Assertions & Verifications**
 
-"United States" should be selected for "Country" dropdown
+* Verification of the visibility of a text on the page
+    * `verify "bdd-helper" text is displayed`
 
-"Country" dropdown should contain "United States" option
-```
-...
 
-# NOTE: To auto completing bdd-helper steps in RubyMine, IntelliJ IDEs, go to Preferences/Languages & Frameworks/Cucumber section and add "bdd-helper" to the list.
+* Verification of a selector's test
+    * `verify "#username" element has "John" text`
+
+
+* Verification of the status of a checkbox (checkbox can be found by its `label`, `name` or `id`)
+    * `verify "Send SMS" checkbox is checked`
+
+**Clicks**
+
+* Clicking a button (button can be found by its `id`, `text` or `title`)
+    * `click "login" button`
+
+
+* Clicking a link (button can be found by its `id`, `text` or `title`)
+    * `click "Registration" link`
+
+**Fills**
+
+* Filling an input the requested value (input can be found by its `name`, `id` or `label text`)
+    * `fill "Phone Number" with "5555555555"`
+
+
+* Filling an input with a random value (input can be found by its `name`, `id` or `label text`)
+    * `fill "Email" with random email`
+    * `fill "Phone Number" with random phone number`
+    * `fill "First Name" with random first name`
+    * `fill "Last Name" with random last name`
+    * `fill "Address" with random address`
+    * `fill "Zip Code" with random zip code`
+
+**Selects**
+
+* Selecting an option from a dropdown
+  (Dropdown can be found by its `name`, `id` or `label text` and it should be `select box`. option can be found by
+  its `text`)
+    * `select "Germany" from "Country" dropdown`
+
+**Browser**
+
+* Navigate to URL defined in `BddHelper` configuration
+    * `visit base page`
+
+
+* Close current window, or the browser if no windows are left.
+    * `close window`
+
+
+* Switches to first or last window
+    * `switch to last window`
+    * `switch to first window`
+
+
+* Scroll to bottom or top of the page
+    * `scroll bottom of the page`
+    * `scroll up of the page`
+  
+# NOTE: To auto-completion of the steps steps in bdd-helper with RubyMine or IntelliJ IDEs
+
+* go to `Preferences` / `Languages & Frameworks` / `Cucumber`
+* add `bdd-helper` to the list
