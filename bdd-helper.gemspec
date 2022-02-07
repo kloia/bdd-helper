@@ -3,11 +3,11 @@ require 'rake'
 Gem::Specification.new do |s|
   s.name        = 'bdd-helper'
   s.version     = '1.0'
-  s.date        = '2017-09-17'
-  s.summary     = "Helper step definitions for Gherkin"
-  s.description = "Package of helper step definitions for BDD testing with Gherkin and Cucumber"
+  s.date        = '2022-02-07'
+  s.summary     = "Helper steps for client-based automation testing"
+  s.description = "Package of helper steps for BDD testing with Cucumber"
   s.authors     = ["kloia"]
-  s.email       = 'maaydin@gmail.com'
+  s.email       = 'burak@kloia.com'
   s.files       = Dir['lib/**/*.*'].to_a
   s.homepage    = 'http://rubygems.org/gems/bdd-helper'
   s.license     = 'MIT'
