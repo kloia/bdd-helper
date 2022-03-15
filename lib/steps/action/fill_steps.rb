@@ -4,7 +4,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And fill "Name" with "John"
-    fill_in(locator, with: text, wait: BddHelper.timeout)
+    FillInUtilMethods.fill_text_field(locator,text)
   end
 
   When(/^fill inputs:$/) do |table|
@@ -14,7 +14,8 @@ begin
     # E.g : And fill inputs:
     #      | username | test user |
     #      | password | pass123 |
-    table.raw.each { |raw| fill_in(raw[0], with: raw[1], wait: BddHelper.timeout) }
+    table.raw.each { |raw| FillInUtilMethods.fill_text_field(raw[0],raw[1])}
+
   end
 
   When(/^fill "([^"]*)" with random (first name)$/) do |locator, arg|
@@ -22,7 +23,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And fill "First Name" with random first name
-    fill_in(locator, with: Faker::Name.first_name, wait: BddHelper.timeout)
+    FillInUtilMethods.fill_text_field(locator,Faker::Name.first_name)
   end
 
   When(/^fill "([^"]*)" with random (last name)$/) do |locator, arg|
@@ -30,7 +31,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And fill "Last Name" with random last name
-    fill_in(locator, with: Faker::Name.last_name, wait: BddHelper.timeout)
+    FillInUtilMethods.fill_text_field(locator,Faker::Name.last_name)
   end
 
   When(/^fill "([^"]*)" with random (email)$/) do |locator, arg|
@@ -38,7 +39,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And fill "Email" with random email
-    fill_in(locator, with: Faker::Internet.safe_email, wait: BddHelper.timeout)
+    FillInUtilMethods.fill_text_field(locator,Faker::Internet.safe_email)
   end
 
   When(/^fill "([^"]*)" with random (phone number)$/) do |locator, arg|
@@ -46,7 +47,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And fill "Phone Number" with random phone number
-    fill_in(locator, with: Array.new(7) { Array(0..9).sample }.join, wait: BddHelper.timeout)
+    FillInUtilMethods.fill_text_field(locator,Array.new(7) { Array(0..9).sample }.join)
   end
 
   When(/^fill "([^"]*)" with random (address)$/) do |locator, arg|
@@ -54,7 +55,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And fill "Address" with random address
-    fill_in(locator, with: Faker::Address.full_address, wait: BddHelper.timeout)
+    FillInUtilMethods.fill_text_field(locator,Faker::Address.full_address)
   end
 
   When(/^fill "([^"]*)" with random (zip code)$/) do |locator, arg|
@@ -62,7 +63,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And fill "Zip Code" with random zip code
-    fill_in(locator, with: Faker::Address.zip_code, wait: BddHelper.timeout)
+    FillInUtilMethods.fill_text_field(locator,Faker::Address.zip_code)
   end
 
   When(/^clear "([^"]*)" input$/) do |locator|
@@ -70,7 +71,7 @@ begin
       Fillable field can be name, id, placeholder or label text
     "
     # E.g : And clear "Name" input
-    fill_in(locator, with: '', fill_options: { clear: :backspace }, wait: BddHelper.timeout)
+    FillInUtilMethods.clear_text_field(locator)
   end
 rescue StandardError => e
   puts e
