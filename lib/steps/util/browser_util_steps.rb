@@ -172,6 +172,10 @@ begin
     $page_title = title
   end
 
+  When(/^switch to iframe by "([^"]*)" "([^"]*)"$/) do |web_element_type, web_element|
+    page.driver.browser.switch_to.frame(find(:"#{web_element_type}", "#{web_element}"))
+  end
+
 rescue StandardError => e
   puts e
 end
