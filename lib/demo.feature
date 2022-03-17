@@ -36,6 +36,8 @@ Feature: demo features
     When maximize window
     When get window size
     When resize window to 123 width 123 height
+    When switch to iframe by id: "123"
+    When switch to parent frame
     # BROWSER UTIL
     ####################################
 
@@ -85,6 +87,8 @@ Feature: demo features
 
     Then verify "audi" options is selected from "cars" dropdown
     Then verify "audi" options is not selected from "cars" dropdown
+
+    Then verify page has "css" element with ".button" locator
     # ASSERTION
     ####################################
 

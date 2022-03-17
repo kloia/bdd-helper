@@ -172,8 +172,20 @@ begin
     $page_title = title
   end
 
-  When(/^switch to iframe by "([^"]*)" "([^"]*)"$/) do |web_element_type, web_element|
-    page.driver.browser.switch_to.frame(find(:"#{web_element_type}", "#{web_element}"))
+  When(/^switch to iframe by id: "([^"]*)"$/) do |web_element|
+    "
+        Switches to the iframe with id.
+    "
+    #E.g. : And switch to iframe by id: "myIframe"
+    page.driver.browser.switch_to.frame(web_element)
+  end
+
+  When(/^switch to parent frame$/) do
+    "
+      Switches to the parent frame.
+    "
+    #E.g. : And switch to parent frame
+    page.driver.browser.switch_to.parent_frame
   end
 
 rescue StandardError => e
