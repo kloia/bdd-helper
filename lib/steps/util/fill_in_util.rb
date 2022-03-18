@@ -1,4 +1,4 @@
-class FillInUtilMethods
+class FillInUtil
 
   def self.clear_text_field(locator)
     fill_in(locator, with: '', fill_options: { clear: :backspace }, wait: BddHelper.timeout)
