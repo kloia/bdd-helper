@@ -172,11 +172,11 @@ begin
     $page_title = title
   end
 
-  When(/^switch to iframe by id: "([^"]*)"$/) do |web_element|
+  When(/^switch to iframe by "([^"]*)" id$/) do |web_element|
     "
         Switches to the iframe with id.
     "
-    #E.g. : And switch to iframe by id: "myIframe"
+    #E.g. : And switch to iframe by "myIframe" id
     page.driver.browser.switch_to.frame(web_element)
   end
 

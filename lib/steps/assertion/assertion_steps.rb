@@ -198,12 +198,12 @@ begin
     page.should_not have_select(dropdown, selected: option, wait: BddHelper.timeout)
   end
 
-  Then(/^verify page has "([^"]*)" element with "(css|xpath)" locator$/) do |locator, locator_type|
+  Then(/^verify page has "([^"]*)" element with (css|xpath) locator$/) do |locator, locator_type|
     "
     Locator_type can be 'css' or 'xpath'.
     Then the locator should be given correspondingly.
     "
-    #E.g. : Then verify page has ".class" element with "css" locator
+    #E.g. : Then verify page has ".class" element with css locator
     page.assert_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
   end
 
