@@ -14,8 +14,7 @@ begin
     # E.g : And fill inputs:
     #      | username | test user |
     #      | password | pass123 |
-    table.raw.each { |raw| FillInUtil.fill_text_field(raw[0], raw[1])}
-
+    table.raw.each { |raw| FillInUtil.fill_text_field(raw[0], raw[1]) }
   end
 
   When(/^fill "([^"]*)" with random (first name)$/) do |locator, arg|
