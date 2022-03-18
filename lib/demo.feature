@@ -88,7 +88,7 @@ Feature: demo features
     Then verify "audi" options is selected from "cars" dropdown
     Then verify "audi" options is not selected from "cars" dropdown
 
-    Then verify page has "css" element with ".button" locator
+    Then verify page has ".class" element with "css" locator
     # ASSERTION
     ####################################
 
