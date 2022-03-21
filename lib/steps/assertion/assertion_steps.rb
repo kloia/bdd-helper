@@ -26,6 +26,32 @@ begin
     page.should_not have_selector(selector, text: text, wait: BddHelper.timeout)
   end
 
+  Then(/^verify "([^"]*)" element has "([^"]*)" text with (css|xpath) selector$/) do |selector, text, selector_type|
+    "
+      Selector can be xpath or css.
+    "
+    # E.g : Then verify ".success-message" element has "Welcome" text with css
+    case selector_type
+    when "xpath"
+      expect(page).to have_xpath(selector, text: text)
+    else #which is css
+      expect(page).to have_css(selector, text: text)
+    end
+  end
+
+  Then(/^verify "([^"]*)" element has not "([^"]*)" text with (css|xpath) selector$/) do |selector, text, selector_type|
+    "
+      Selector can be xpath or css.
+    "
+    # E.g : Then verify ".success-message" element has not "Welcome" text with css
+    case selector_type
+    when "xpath"
+      find(:path,"#{selector}").text.should_not == text
+    else #which is css
+      find(:css,"#{selector}").text.should_not == text
+    end
+  end
+
   Then(/^verify "([^"]*)" button is displayed$/) do |button|
     "
       Button can be id, name, value, or title

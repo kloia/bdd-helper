@@ -188,6 +188,14 @@ begin
     page.driver.browser.switch_to.parent_frame
   end
 
+  When(/^switch to default content$/) do
+    "
+    Switches back to default content.
+    "
+    #E.g. : And switch to default content
+    switch_to_frame(:top)
+  end
+
 rescue StandardError => e
   puts e
 end

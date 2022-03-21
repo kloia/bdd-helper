@@ -38,6 +38,7 @@ Feature: demo features
     When resize window to 123 width 123 height
     When switch to iframe by "123" id
     When switch to parent frame
+    When switch to default content
     # BROWSER UTIL
     ####################################
 
@@ -89,6 +90,12 @@ Feature: demo features
     Then verify "audi" options is not selected from "cars" dropdown
 
     Then verify page has ".login" element with css locator
+
+    Then verify "#checkbox-example-div" element has "Checkbox Example" text with css selector
+    Then verify "//*[@id='checkbox-example-div']" element has "Checkbox Example" text with xpath selector
+    Then verify "#checkbox-example-div" element has not "Checkbox Example1" text with css selector
+    Then verify "//*[@id='checkbox-example-div']" element has not "Checkbox Example1" text with xpath selector
+
     # ASSERTION
     ####################################
 
