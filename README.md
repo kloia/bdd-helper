@@ -2,8 +2,17 @@
   <a href="https://img.shields.io/github/stars/kloia/bdd-helper/stargazers">
     <img src="https://img.shields.io/github/stars/kloia/bdd-helper?style=social" alt="stargazers"/>
   </a>
-  <a href="https://github.com/kloia/bdd-helper/releases">
-    <img src="https://img.shields.io/github/release/kloia/bdd-helper.svg" alt="releases"/>
+
+[comment]: <> (  <a href="https://github.com/kloia/bdd-helper/releases">)
+
+[comment]: <> (    <img src="https://img.shields.io/github/release/kloia/bdd-helper.svg" alt="releases"/>)
+
+[comment]: <> (  </a>)
+  <a href="https://rubygems.org/gems/bdd-helper">
+    <img src="https://img.shields.io/gem/v/bdd-helper?include_prereleases" alt="gem_release"/>
+  </a>
+  <a href="https://rubygems.org/gems/bdd-helper">
+    <img src="https://img.shields.io/gem/dt/bdd-helper" alt="downloads"/>
   </a>
 </div>
 
