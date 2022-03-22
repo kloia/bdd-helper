@@ -55,6 +55,16 @@ Feature: demo features
 
     Then verify ".success-message" element has "Welcome" text
     Then verify ".fail-message" element has not "Welcome" text
+    Then verify ".success-message" element contains "Welcome" text
+
+    Then verify "#select-class-example" element starts with "Select" text
+    Then verify "#open-tab-example-div" element ends with "Tab" text
+
+    Then verify expected number of exact matches for element "[name='cars']" is 7
+    Then verify expected number of minimum matches for element "[name='cars']" is 1
+    Then verify expected number of maximum matches for element "[name='cars']" is 7
+    Then verify expected number of matches found for element "[name='cars']" is between 1 and 7
+
 
     Then verify "Login" button is displayed
     Then verify "Sign In " button is not displayed
