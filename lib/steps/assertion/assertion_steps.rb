@@ -34,20 +34,32 @@ begin
     page.should have_selector(selector, text: text, exact: false, wait: BddHelper.timeout)
   end
 
-  Then(/^verify "([^"]*)" element starts with "([^"]*)" text$/) do |selector, text|
+  Then(/^verify "([^"]*)" element starts with "([^"]*)" text by (css|xpath)$/) do |selector, text, selector_type|
     "
-      Selector should be a css selector
+      Selector can be css or xpath.
     "
-    # E.g : Then verify "#select-class-example" element starts with "Select" text
-    find(selector).text.should start_with(text)
+    # E.g : Then verify "#select-class-example legend" element starts with "Select" text by css
+    # E.g : Then verify "//*[@id='select-class-example']" element starts with "Select" text by xpath
+    case selector_type
+    when "css"
+      find(selector, wait: BddHelper.timeout).text.should start_with(text)
+    else #which is xpath
+      find(:xpath, selector, wait: BddHelper.timeout).text.should start_with(text)
+    end
   end
 
-  Then(/^verify "([^"]*)" element ends with "([^"]*)" text$/) do |selector, text|
+  Then(/^verify "([^"]*)" element ends with "([^"]*)" text by (css|xpath)$/) do |selector, text, selector_type|
     "
-      Selector should be a css selector
+      Selector can be css or xpath.
     "
-    # E.g : Then verify "#open-tab-example-div" element ends with "Tab" text
-    find(selector).text.should end_with(text)
+    # E.g : Then verify "#open-tab-example-div" element ends with "Tab" text by css
+    # E.g : Then verify "//*[@id='open-tab-example-div']" element ends with "Tab" text by xpath
+    case selector_type
+    when "css"
+      find(selector, wait: BddHelper.timeout).text.should end_with(text)
+    else #which is xpath
+      find(:xpath, selector, wait: BddHelper.timeout).text.should end_with(text)
+    end
   end
 
   Then(/^verify expected number of exact matches for element "([^"]*)" is (\d+)$/) do |selector, number|
