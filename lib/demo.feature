@@ -31,14 +31,15 @@ Feature: demo features
     When switch to first tab
     When switch to last tab
     When switch to window by "Welcome" title
+    When switch to iframe by "123" id
+    When switch to parent frame
+    When switch to default content
 
     When close window
     When maximize window
     When get window size
     When resize window to 123 width 123 height
-    When switch to iframe by "123" id
-    When switch to parent frame
-    When switch to default content
+
     # BROWSER UTIL
     ####################################
 
@@ -89,12 +90,15 @@ Feature: demo features
     Then verify "audi" options is selected from "cars" dropdown
     Then verify "audi" options is not selected from "cars" dropdown
 
-    Then verify page has ".login" element with css locator
+    Then verify page has ".login" element by css
+    Then verify page has "//*[@class='login']>" element by xpath
+    Then verify page has not "#checkbox-example-div1" element by css
+    Then verify page has not "//*[@id='checkbox-example-div1']" element by xpath
 
-    Then verify "#checkbox-example-div" element has "Checkbox Example" text with css selector
-    Then verify "//*[@id='checkbox-example-div']" element has "Checkbox Example" text with xpath selector
-    Then verify "#checkbox-example-div" element has not "Checkbox Example1" text with css selector
-    Then verify "//*[@id='checkbox-example-div']" element has not "Checkbox Example1" text with xpath selector
+    Then verify "#checkbox-example-div" element has "Checkbox Example" text by css
+    Then verify "//*[@id='checkbox-example-div']" element has "Checkbox Example" text by xpath
+    Then verify "#checkbox-example-div" element has not "Checkbox Example1" text by css
+    Then verify "//*[@id='checkbox-example-div']" element has not "Checkbox Example1" text by xpath
 
     # ASSERTION
     ####################################
@@ -117,6 +121,8 @@ Feature: demo features
 
     When click "Contact Us" link
     When click "Sign In" button
+    When click "#bmwradio" element by css
+    When click "//*[@id='openwindow']" element by xpath
 
     When check "Terms & Conditions" checkbox
     When uncheck "Privacy Policy" checkbox
@@ -125,6 +131,8 @@ Feature: demo features
 
     When clear "First Name" input
     When select "audi" from "cars" dropdown
+    When select "Honda" from "#carselect" element by css
+    When select "BMW" from "//*[@id='carselect']" element by xpath
 
     When press "#login" enter
     When press "#username" delete

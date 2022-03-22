@@ -11,6 +11,14 @@ begin
     page.should have_select(dropdown_id_name_or_label_text, selected: option)
   end
 
+  When(/^select "([^"]*)" from "([^"]*)" element by (xpath|css)$/) do |option, dropdown_locator, locator_type|
+    "
+    Option is visible text and the dropdown_locator should be css or xpath according to locator_type.
+    "
+    # E.g : And select "Honda" from "#carselect" element by css
+    find("#{locator_type}".to_sym ,dropdown_locator).find(:option,option).select_option
+  end
+
 rescue StandardError => e
   puts e
 end

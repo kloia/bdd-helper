@@ -26,7 +26,7 @@ begin
     page.should_not have_selector(selector, text: text, wait: BddHelper.timeout)
   end
 
-  Then(/^verify "([^"]*)" element has "([^"]*)" text with (css|xpath) selector$/) do |selector, text, selector_type|
+  Then(/^verify "([^"]*)" element has "([^"]*)" text by (css|xpath)$/) do |selector, text, selector_type|
     "
       Selector can be xpath or css.
     "
@@ -39,14 +39,14 @@ begin
     end
   end
 
-  Then(/^verify "([^"]*)" element has not "([^"]*)" text with (css|xpath) selector$/) do |selector, text, selector_type|
+  Then(/^verify "([^"]*)" element has not "([^"]*)" text by (css|xpath)$/) do |selector, text, selector_type|
     "
       Selector can be xpath or css.
     "
     # E.g : Then verify ".success-message" element has not "Welcome" text with css
     case selector_type
     when "xpath"
-      find(:path,"#{selector}").text.should_not == text
+      find(:xpath,"#{selector}").text.should_not == text
     else #which is css
       find(:css,"#{selector}").text.should_not == text
     end
@@ -224,13 +224,22 @@ begin
     page.should_not have_select(dropdown, selected: option, wait: BddHelper.timeout)
   end
 
-  Then(/^verify page has "([^"]*)" element with (css|xpath) locator$/) do |locator, locator_type|
+  Then(/^verify page has "([^"]*)" element by (css|xpath)$/) do |locator, locator_type|
+    "
+    Locator type can be 'css' or 'xpath'.
+    Then the locator should be given correspondingly.
+    "
+    #E.g. : Then verify page has ".class" element by css
+    page.assert_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify page has not "([^"]*)" element by (css|xpath)$/) do |locator, locator_type|
     "
     Locator_type can be 'css' or 'xpath'.
     Then the locator should be given correspondingly.
     "
-    #E.g. : Then verify page has ".class" element with css locator
-    page.assert_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
+    #E.g. : Then verify page has not ".class" element by css
+    page.should_not have_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
   end
 
 rescue StandardError => e

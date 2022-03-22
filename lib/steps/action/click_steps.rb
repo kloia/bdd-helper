@@ -15,6 +15,13 @@ begin
     click_link(link_id_title_or_text, wait: BddHelper.timeout)
   end
 
+  When(/^click "([^"]*)" element by (css|xpath)$/) do |locator, locator_type|
+    "
+      Locator can be xpath or css.
+    "
+    # E.g. : And click ".login" element by css
+    find("#{locator_type}".to_sym, locator).click
+  end
   When(/^click "([^"]*)" under "([^"]*)"$/) do |link, menu|
     "
       Finds a element with capybara default_selector, link can be id, text or title
