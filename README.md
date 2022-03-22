@@ -1,3 +1,23 @@
+<div>
+  <a href="https://img.shields.io/github/stars/kloia/bdd-helper/stargazers">
+    <img src="https://img.shields.io/github/stars/kloia/bdd-helper?style=social" alt="stargazers"/>
+  </a>
+
+[comment]: <> (  <a href="https://github.com/kloia/bdd-helper/releases">)
+
+[comment]: <> (    <img src="https://img.shields.io/github/release/kloia/bdd-helper.svg" alt="releases"/>)
+
+[comment]: <> (  </a>)
+  <a href="https://rubygems.org/gems/bdd-helper">
+    <img src="https://img.shields.io/gem/v/bdd-helper?include_prereleases" alt="gem_release"/>
+  </a>
+  <a href="https://rubygems.org/gems/bdd-helper">
+    <img src="https://img.shields.io/gem/dt/bdd-helper" alt="downloads"/>
+  </a>
+</div>
+
+<img src="resources/bdd-helper-logo-white.jpg" height="200" width="313" alt="bdd-helper"/>
+
 # bdd-helper
 
 `bdd-helper` is a Ruby gem to create Cucumber scenarios fastly. It...
@@ -15,8 +35,11 @@ gem install bdd-helper
 # Configuration
 
 Configure `BddHelper` to suit your needs.
+
 - timeout (Numeric = 20)  : The maximum number of seconds to wait for asynchronous processes to finish.
-- base_url (String nil)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: This parameter specifies the default host of the test automation project that you developed and performs your operations through this host, must be a valid URL e.g. http://www.example.com
+- base_url (String nil)   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: This parameter specifies the default host of the test
+  automation project that you developed and performs your operations through this host, must be a valid URL
+  e.g. http://www.example.com
 
 ```
 BddHelper.configure do |config|
@@ -27,17 +50,18 @@ end
 
 # Global Context
 
-You add GlobalContext.new to Before method in your cucumber hooks. It resets global variables to default values for each scenario in an execution.
+You add GlobalContext.new to Before method in your cucumber hooks. It resets global variables to default values for each
+scenario in an execution.
 
-- $current_url  &nbsp;&nbsp;&nbsp;: The current url is assigned in the `get current url` step
+- $current_url &nbsp;&nbsp;&nbsp;: The current url is assigned in the `get current url` step
 - $window_size  : The window size is assigned in the `get window size` step
 - $page_title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : The page title is assigned in the `get window title` step
+
 ```
 Before do |scenario|
   GlobalContext.new
 end
 ```
-
 
 # Examples
 
@@ -102,7 +126,7 @@ end
 * Scroll to bottom or top of the page
     * `scroll bottom of the page`
     * `scroll up of the page`
-  
+
 # NOTE: To auto-completion of the steps steps in bdd-helper with RubyMine or IntelliJ IDEs
 
 * go to `Preferences` / `Languages & Frameworks` / `Cucumber`
