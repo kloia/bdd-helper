@@ -108,13 +108,15 @@ Feature: demo features
     ####################################
     # ACTION
     When fill "Username" with "value"
+    When fill "#displayed-text" with "value" by css
+    When fill "//*[@id='displayed-text']" with "value" by xpath
     When fill "First Name" with random first name
     When fill "Last Name" with random last name
     When fill "Email" with random email
     When fill "Phone Number" with random phone number
     When fill "Address" with random address
     When fill "Zip Code" with random zip code
-
+    
     When fill inputs:
       | username   | test user |
       | password   | pas123    |
