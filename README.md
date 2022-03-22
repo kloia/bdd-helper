@@ -7,7 +7,7 @@
   </a>
 </div>
 
-<img src="resources/bdd-helper-logo-white.jpg" height="1057" alt="bdd-helper"/>
+<img src="resources/bdd-helper-logo-white.jpg" height="200" width="313" alt="bdd-helper"/>
 
 # bdd-helper
 
