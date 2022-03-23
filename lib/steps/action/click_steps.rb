@@ -15,11 +15,11 @@ begin
     click_link(link_id_title_or_text, wait: BddHelper.timeout)
   end
 
-  When(/^click "([^"]*)" element by (css|xpath)$/) do |locator, locator_type|
+  When(/^click "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
     "
       Locator can be xpath or css.
     "
-    # E.g. : And click ".login" element by css
+    # E.g. : And click ".login" css element
     find("#{locator_type}".to_sym, locator).click
   end
   When(/^click "([^"]*)" under "([^"]*)"$/) do |link, menu|

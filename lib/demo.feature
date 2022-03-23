@@ -90,15 +90,15 @@ Feature: demo features
     Then verify "audi" options is selected from "cars" dropdown
     Then verify "audi" options is not selected from "cars" dropdown
 
-    Then verify page has ".login" element by css
-    Then verify page has "//*[@class='login']>" element by xpath
-    Then verify page has not "#checkbox-example-div1" element by css
-    Then verify page has not "//*[@id='checkbox-example-div1']" element by xpath
+    Then verify page has ".login" css element
+    Then verify page has "//*[@class='login']>" xpath element
+    Then verify page has not "#checkbox-example-div1" css element
+    Then verify page has not "//*[@id='checkbox-example-div1']" xpath element
 
-    Then verify "#checkbox-example-div" element has "Checkbox Example" text by css
-    Then verify "//*[@id='checkbox-example-div']" element has "Checkbox Example" text by xpath
-    Then verify "#checkbox-example-div" element has not "Checkbox Example1" text by css
-    Then verify "//*[@id='checkbox-example-div']" element has not "Checkbox Example1" text by xpath
+    Then verify "#checkbox-example-div" css element has "Checkbox Example" text
+    Then verify "//*[@id='checkbox-example-div']" xpath element has "Checkbox Example" text
+    Then verify "#checkbox-example-div" css element has not "Checkbox Example1" text
+    Then verify "//*[@id='checkbox-example-div']" xpath element has not "Checkbox Example1" text
 
     # ASSERTION
     ####################################
@@ -108,8 +108,8 @@ Feature: demo features
     ####################################
     # ACTION
     When fill "Username" with "value"
-    When fill "#displayed-text" with "value" by css
-    When fill "//*[@id='displayed-text']" with "value" by xpath
+    When fill "#displayed-text" css element with "value"
+    When fill "//*[@id='displayed-text']" xpath element with "value"
     When fill "First Name" with random first name
     When fill "Last Name" with random last name
     When fill "Email" with random email
@@ -123,8 +123,8 @@ Feature: demo features
 
     When click "Contact Us" link
     When click "Sign In" button
-    When click "#bmwradio" element by css
-    When click "//*[@id='openwindow']" element by xpath
+    When click "#bmwradio" css element
+    When click "//*[@id='openwindow']" xpath element
 
     When check "Terms & Conditions" checkbox
     When uncheck "Privacy Policy" checkbox
@@ -133,8 +133,8 @@ Feature: demo features
 
     When clear "First Name" input
     When select "audi" from "cars" dropdown
-    When select "Honda" from "#carselect" element by css
-    When select "BMW" from "//*[@id='carselect']" element by xpath
+    When select "Honda" from "#carselect" css element
+    When select "BMW" from "//*[@id='carselect']" xpath element
 
     When press "#login" enter
     When press "#username" delete
