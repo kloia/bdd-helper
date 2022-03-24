@@ -235,7 +235,7 @@ begin
 
   Then(/^verify page has not "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
     "
-    Locator_type can be 'css' or 'xpath'.
+    Locator type can be 'css' or 'xpath'.
     Then the locator should be given correspondingly.
     "
     #E.g. : Then verify page has not ".class" css element
