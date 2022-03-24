@@ -56,11 +56,10 @@ Feature: demo features
     Then verify ".success-message" element has "Welcome" text
     Then verify ".fail-message" element has not "Welcome" text
     Then verify ".success-message" element contains "Welcome" text
+    Then verify ".success-message" element contains "elcom" text
 
-    Then verify "#select-class-example legend" element starts with "Select" text by css
-    Then verify "//*[@id='select-class-example']" element starts with "Select" text by xpath
-    Then verify "#open-tab-example-div" element ends with "Tab" text by css
-    Then verify "//*[@id='open-tab-example-div']" element ends with "Tab" text by xpath
+    Then verify "#select-class-example legend" css element starts with "Select" text
+    Then verify "//*[@id='open-tab-example-div']" xpath element ends with "Tab" text
 
     Then verify expected number of exact matches for element "[name='cars']" is 7
     Then verify expected number of minimum matches for element "[name='cars']" is 1

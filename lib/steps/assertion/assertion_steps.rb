@@ -30,35 +30,35 @@ begin
     "
       Selector should be a css selector
     "
-    # E.g : Then verify ".success-message" element contains "Welcome" text
-    page.should have_selector(selector, text: text, exact: false, wait: BddHelper.timeout)
+    # E.g : Then verify ".success-message" element contains "elcom" text
+    page.should have_selector(selector, text: text, exact_text: false, wait: BddHelper.timeout)
   end
 
-  Then(/^verify "([^"]*)" element starts with "([^"]*)" text by (css|xpath)$/) do |selector, text, selector_type|
+  Then(/^verify "([^"]*)" (css|xpath) element starts with "([^"]*)" text$/) do |selector, selector_type, text|
     "
       Selector can be css or xpath.
     "
-    # E.g : Then verify "#select-class-example legend" element starts with "Select" text by css
-    # E.g : Then verify "//*[@id='select-class-example']" element starts with "Select" text by xpath
+    # E.g : Then verify "#select-class-example legend" css element starts with "Select" text
     case selector_type
-    when "css"
-      find(selector, wait: BddHelper.timeout).text.should start_with(text)
-    else #which is xpath
-      find(:xpath, selector, wait: BddHelper.timeout).text.should start_with(text)
+    when "xpath"
+      find(:xpath, "#{selector}").text.should start_with(text)
+    else
+      #which is css
+      find(:css, "#{selector}").text.should start_with(text)
     end
   end
 
-  Then(/^verify "([^"]*)" element ends with "([^"]*)" text by (css|xpath)$/) do |selector, text, selector_type|
+  Then(/^verify "([^"]*)" (css|xpath) element ends with "([^"]*)" text$/) do |selector, selector_type, text|
     "
       Selector can be css or xpath.
     "
-    # E.g : Then verify "#open-tab-example-div" element ends with "Tab" text by css
-    # E.g : Then verify "//*[@id='open-tab-example-div']" element ends with "Tab" text by xpath
+    # E.g : Then verify "//*[@id='open-tab-example-div']" xpath element ends with "Tab" text
     case selector_type
-    when "css"
-      find(selector, wait: BddHelper.timeout).text.should end_with(text)
-    else #which is xpath
-      find(:xpath, selector, wait: BddHelper.timeout).text.should end_with(text)
+    when "xpath"
+      find(:xpath, "#{selector}").text.should end_with(text)
+    else
+      #which is css
+      find(:css, "#{selector}").text.should end_with(text)
     end
   end
 
