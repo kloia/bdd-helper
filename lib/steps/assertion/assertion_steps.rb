@@ -26,6 +26,32 @@ begin
     page.should_not have_selector(selector, text: text, wait: BddHelper.timeout)
   end
 
+  Then(/^verify "([^"]*)" (css|xpath) element has "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be xpath or css.
+    "
+    # E.g : Then verify ".success-message" css element has "Welcome" text
+    case selector_type
+    when "xpath"
+      expect(page).to have_xpath(selector, text: text)
+    else #which is css
+      expect(page).to have_css(selector, text: text)
+    end
+  end
+
+  Then(/^verify "([^"]*)" (css|xpath) element has not "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be xpath or css.
+    "
+    # E.g : Then verify ".success-message" css element has not "Welcome" text
+    case selector_type
+    when "xpath"
+      find(:xpath,"#{selector}").text.should_not == text
+    else #which is css
+      find(:css,"#{selector}").text.should_not == text
+    end
+  end
+
   Then(/^verify "([^"]*)" button is displayed$/) do |button|
     "
       Button can be id, name, value, or title
@@ -197,6 +223,25 @@ begin
     # E.g : Then verify "United States" options is not selected from "Country" dropdown
     page.should_not have_select(dropdown, selected: option, wait: BddHelper.timeout)
   end
+
+  Then(/^verify page has "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
+    "
+    Locator type can be 'css' or 'xpath'.
+    Then the locator should be given correspondingly.
+    "
+    #E.g. : Then verify page has ".class" css element
+    page.assert_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify page has not "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
+    "
+    Locator type can be 'css' or 'xpath'.
+    Then the locator should be given correspondingly.
+    "
+    #E.g. : Then verify page has not ".class" css element
+    page.should_not have_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
+  end
+
 rescue StandardError => e
   puts e
 end

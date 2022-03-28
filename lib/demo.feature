@@ -31,11 +31,15 @@ Feature: demo features
     When switch to first tab
     When switch to last tab
     When switch to window by "Welcome" title
+    When switch to iframe by "123" id
+    When switch to parent frame
+    When switch to default content
 
     When close window
     When maximize window
     When get window size
     When resize window to 123 width 123 height
+
     # BROWSER UTIL
     ####################################
 
@@ -85,6 +89,17 @@ Feature: demo features
 
     Then verify "audi" options is selected from "cars" dropdown
     Then verify "audi" options is not selected from "cars" dropdown
+
+    Then verify page has ".login" css element
+    Then verify page has "//*[@class='login']>" xpath element
+    Then verify page has not "#checkbox-example-div1" css element
+    Then verify page has not "//*[@id='checkbox-example-div1']" xpath element
+
+    Then verify "#checkbox-example-div" css element has "Checkbox Example" text
+    Then verify "//*[@id='checkbox-example-div']" xpath element has "Checkbox Example" text
+    Then verify "#checkbox-example-div" css element has not "Checkbox Example1" text
+    Then verify "//*[@id='checkbox-example-div']" xpath element has not "Checkbox Example1" text
+
     # ASSERTION
     ####################################
 
@@ -93,19 +108,23 @@ Feature: demo features
     ####################################
     # ACTION
     When fill "Username" with "value"
+    When fill "#displayed-text" css element with "value"
+    When fill "//*[@id='displayed-text']" xpath element with "value"
     When fill "First Name" with random first name
     When fill "Last Name" with random last name
     When fill "Email" with random email
     When fill "Phone Number" with random phone number
     When fill "Address" with random address
     When fill "Zip Code" with random zip code
-
+    
     When fill inputs:
       | username   | test user |
       | password   | pas123    |
 
     When click "Contact Us" link
     When click "Sign In" button
+    When click "#bmwradio" css element
+    When click "//*[@id='openwindow']" xpath element
 
     When check "Terms & Conditions" checkbox
     When uncheck "Privacy Policy" checkbox
@@ -114,6 +133,8 @@ Feature: demo features
 
     When clear "First Name" input
     When select "audi" from "cars" dropdown
+    When select "Honda" from "#carselect" css element
+    When select "BMW" from "//*[@id='carselect']" xpath element
 
     When press "#login" enter
     When press "#username" delete
