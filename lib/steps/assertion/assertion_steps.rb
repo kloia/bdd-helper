@@ -298,7 +298,7 @@ begin
     Then the locator should be given correspondingly.
     "
     #E.g. : Then verify page has ".class" css element
-    page.assert_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
+    page.assert_selector("#{locator_type}".to_sym, locator, wait: BddHelper.timeout)
   end
 
   Then(/^verify page has not "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
@@ -307,7 +307,7 @@ begin
     Then the locator should be given correspondingly.
     "
     #E.g. : Then verify page has not ".class" css element
-    page.should_not have_selector(:"#{locator_type}", locator, wait: BddHelper.timeout)
+    page.should_not have_selector("#{locator_type}".to_sym, locator, wait: BddHelper.timeout)
   end
 
 rescue StandardError => e
