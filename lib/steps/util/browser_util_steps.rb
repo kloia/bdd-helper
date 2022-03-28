@@ -66,7 +66,6 @@ begin
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
   end
 
-
   When(/^switch to window by "([^"]*)" title$/) do |window_title|
     "
       Window title should be title of the target window

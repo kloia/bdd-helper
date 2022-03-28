@@ -16,7 +16,7 @@ begin
     Option is visible text and the dropdown locator should be css or xpath according to locator type.
     "
     # E.g : And select "Honda" from "#carselect" css element
-    find("#{locator_type}".to_sym ,dropdown_locator).find(:option,option).select_option
+    find("#{locator_type}".to_sym, dropdown_locator).find(:option, option).select_option
   end
 
 rescue StandardError => e

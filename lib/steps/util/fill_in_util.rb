@@ -8,6 +8,4 @@ class FillInUtil
     clear_text_field(locator)
     fill_in(locator, with: text, wait: BddHelper.timeout)
   end
-
 end
-

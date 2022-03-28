@@ -22,6 +22,7 @@ begin
     # E.g. : And click ".login" css element
     find("#{locator_type}".to_sym, locator).click
   end
+
   When(/^click "([^"]*)" under "([^"]*)"$/) do |link, menu|
     "
       Finds a element with capybara default_selector, link can be id, text or title

@@ -6,6 +6,7 @@ begin
     # E.g : And fill "Name" with "John"
     FillInUtil.fill_text_field(locator, text)
   end
+
   When(/^fill "([^"]*)" (css|xpath) element with "([^"]*)"$/) do |locator, locator_type, text|
     "
       Fillable field can be css or xpath locator.

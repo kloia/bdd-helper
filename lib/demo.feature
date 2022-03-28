@@ -127,10 +127,9 @@ Feature: demo features
     When fill "Phone Number" with random phone number
     When fill "Address" with random address
     When fill "Zip Code" with random zip code
-    
     When fill inputs:
-      | username   | test user |
-      | password   | pas123    |
+      | username | test user |
+      | password | pas123    |
 
     When click "Contact Us" link
     When click "Sign In" button
