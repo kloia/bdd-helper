@@ -26,6 +26,74 @@ begin
     page.should_not have_selector(selector, text: text, wait: BddHelper.timeout)
   end
 
+  Then(/^verify "([^"]*)" element contains "([^"]*)" text$/) do |selector, text|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify ".success-message" element contains "elcom" text
+    page.should have_selector(selector, text: text, exact_text: false, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify "([^"]*)" (css|xpath) element starts with "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be css or xpath.
+    "
+    # E.g : Then verify "#select-class-example legend" css element starts with "Select" text
+    case selector_type
+    when "xpath"
+      find(:xpath, "#{selector}").text.should start_with(text)
+    else
+      #which is css
+      find(:css, "#{selector}").text.should start_with(text)
+    end
+  end
+
+  Then(/^verify "([^"]*)" (css|xpath) element ends with "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be css or xpath.
+    "
+    # E.g : Then verify "//*[@id='open-tab-example-div']" xpath element ends with "Tab" text
+    case selector_type
+    when "xpath"
+      find(:xpath, "#{selector}").text.should end_with(text)
+    else
+      #which is css
+      find(:css, "#{selector}").text.should end_with(text)
+    end
+  end
+
+  Then(/^verify expected number of exact matches for element "([^"]*)" is (\d+)$/) do |selector, number|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify expected number of exact matches for element "[name='cars']" is 7
+    expect(page).to have_selector(selector, visible: true, count: number, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify expected number of minimum matches for element "([^"]*)" is (\d+)$/) do |selector, number|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify expected number of minimum matches for element "[name='cars']" is 1
+    page.assert_selector(selector, minimum: number, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify expected number of maximum matches for element "([^"]*)" is (\d+)$/) do |selector, number|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify expected number of maximum matches for element "[name='cars']" is 7
+    page.assert_selector(selector, maximum: number, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify expected number of matches found for element "([^"]*)" is between (\d+) and (\d+)$/) do |selector, minimum, maximum|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify expected number of matches found for element "[name='cars']" is between 1 and 7
+    page.assert_selector(selector, between: minimum..maximum, wait: BddHelper.timeout)
+  end
+
   Then(/^verify "([^"]*)" (css|xpath) element has "([^"]*)" text$/) do |selector, selector_type, text|
     "
       Selector can be xpath or css.
