@@ -65,10 +65,10 @@ Feature: demo features
     Then verify "#select-class-example legend" css element starts with "Select" text
     Then verify "//*[@id='open-tab-example-div']" xpath element ends with "Tab" text
 
-    Then verify expected number of exact matches for element "[name='cars']" is 7
-    Then verify expected number of minimum matches for element "[name='cars']" is 1
-    Then verify expected number of maximum matches for element "[name='cars']" is 7
-    Then verify expected number of matches found for element "[name='cars']" is between 1 and 7
+    Then verify page has 8 occurrences of "[name='cars']" element
+    Then verify page has minimum 1 occurrences of "[name='cars']" element
+    Then verify page has maximum 8 occurrences of "[name='cars']" element
+    Then verify page has between 1 and 7 occurrences of "[name='cars']" element
 
 
     Then verify "Login" button is displayed

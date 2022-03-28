@@ -42,8 +42,7 @@ begin
     case selector_type
     when "xpath"
       find(:xpath, "#{selector}").text.should start_with(text)
-    else
-      #which is css
+    else #which is css
       find(:css, "#{selector}").text.should start_with(text)
     end
   end
@@ -62,35 +61,35 @@ begin
     end
   end
 
-  Then(/^verify expected number of exact matches for element "([^"]*)" is (\d+)$/) do |selector, number|
+  Then(/^verify page has (\d+) (?:occurrences|occurrence) of "([^"]*)" element$/) do |number,selector|
     "
       Selector should be a css selector
     "
-    # E.g : Then verify expected number of exact matches for element "[name='cars']" is 7
+    # E.g : Then verify page has 7 occurrences of "[name='cars']" element
     expect(page).to have_selector(selector, visible: true, count: number, wait: BddHelper.timeout)
   end
 
-  Then(/^verify expected number of minimum matches for element "([^"]*)" is (\d+)$/) do |selector, number|
+  Then(/^verify page has minimum (\d+) (?:occurrences|occurrence) of "([^"]*)" element$/) do |number, selector|
     "
       Selector should be a css selector
     "
-    # E.g : Then verify expected number of minimum matches for element "[name='cars']" is 1
+    # E.g : Then verify page has minimum 1 occurrence of "[name='cars']" element
     page.assert_selector(selector, minimum: number, wait: BddHelper.timeout)
   end
 
-  Then(/^verify expected number of maximum matches for element "([^"]*)" is (\d+)$/) do |selector, number|
+  Then(/^verify page has maximum (\d+) (?:occurrences|occurrence) of "([^"]*)" element$/) do |number, selector|
     "
       Selector should be a css selector
     "
-    # E.g : Then verify expected number of maximum matches for element "[name='cars']" is 7
+    # E.g : Then verify page has maximum 8 occurrences of "[name='cars']" element
     page.assert_selector(selector, maximum: number, wait: BddHelper.timeout)
   end
 
-  Then(/^verify expected number of matches found for element "([^"]*)" is between (\d+) and (\d+)$/) do |selector, minimum, maximum|
+  Then(/^verify page has between (\d+) and (\d+) occurrences of "([^"]*)" element$/) do |minimum, maximum, selector|
     "
       Selector should be a css selector
     "
-    # E.g : Then verify expected number of matches found for element "[name='cars']" is between 1 and 7
+    # E.g : Then verify page has between 1 and 7 occurrences of "[name='cars']" element
     page.assert_selector(selector, between: minimum..maximum, wait: BddHelper.timeout)
   end
 
