@@ -102,7 +102,7 @@ Feature: demo features
     Then verify "audi" options is not selected from "cars" dropdown
 
     Then verify page has ".login" css element
-    Then verify page has "//*[@class='login']>" xpath element
+    Then verify page has "//*[@class='login']" xpath element
     Then verify page has not "#checkbox-example-div1" css element
     Then verify page has not "//*[@id='checkbox-example-div1']" xpath element
 
@@ -119,8 +119,8 @@ Feature: demo features
     ####################################
     # ACTION
     When fill "Username" with "value"
-    When fill "#displayed-text" css element with "value"
-    When fill "//*[@id='displayed-text']" xpath element with "value"
+    When fill ".login-form .message" css element with "Thank you"
+    When fill "//div[@class='login-form']//input[@class='message']" xpath element with "Thank you"
     When fill "First Name" with random first name
     When fill "Last Name" with random last name
     When fill "Email" with random email
