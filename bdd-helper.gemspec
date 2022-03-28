@@ -2,18 +2,24 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name        = 'bdd-helper'
-  s.version     = '1.0'
-  s.date        = '2017-09-17'
-  s.summary     = "Helper step definitions for Gherkin"
-  s.description = "Package of helper step definitions for BDD testing with Gherkin and Cucumber"
+  s.version     = '1.0.1'
+  s.date        = '2022-02-07'
+  s.summary     = "Helper steps for client-based automation testing"
+  s.description = "Package of helper steps for BDD testing with Cucumber"
   s.authors     = ["kloia"]
-  s.email       = 'maaydin@gmail.com'
+  s.email       = 'burak@kloia.com'
   s.files       = Dir['lib/**/*.*'].to_a
-  s.homepage    = 'http://rubygems.org/gems/bdd-helper'
+  s.homepage    = 'https://github.com/kloia/bdd-helper'
+  s.metadata = {
+    'source_code_uri' => 'https://github.com/kloia/bdd-helper',
+    'changelog_uri' => 'https://github.com/kloia/bdd-helper/blob/master/CHANGELOG.md'
+  }
   s.license     = 'MIT'
+  s.required_ruby_version = '>= 2.6.0'
   s.add_runtime_dependency 'capybara',  '~> 3.36'
   s.add_runtime_dependency 'cucumber', '~> 7.1'
   s.add_runtime_dependency 'rspec', '~> 3.10'
   s.add_runtime_dependency 'selenium-webdriver', '~> 4.0', '>= 4.0.3'
   s.add_runtime_dependency 'faker', '~> 2.19'
+
 end
