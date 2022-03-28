@@ -54,13 +54,13 @@ begin
     open_new_window
   end
 
-  When(/^switch to last (?:window|tab)$/) do |arg|
+  When(/^switch to last (?:window|tab)$/) do 
     # E.g : And switch to last window
     # E.g : And switch to last tab
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.last)
   end
 
-  When(/^switch to first (?:window|tab)$/) do |arg|
+  When(/^switch to first (?:window|tab)$/) do
     # E.g : And switch to first window
     # E.g : And switch to first tab
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
