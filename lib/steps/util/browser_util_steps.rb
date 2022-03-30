@@ -166,7 +166,7 @@ begin
 
   When(/^get window title$/) do
     "
-       This gets title of the current page then defines it to the global variable
+      This gets title of the current page then defines it to the global variable
     "
     # E.g : And get window title
     $page_title = title
@@ -174,7 +174,7 @@ begin
 
   When(/^switch to iframe by "([^"]*)" id$/) do |web_element|
     "
-        Switches to the iframe with id.
+      Switches to the iframe with id.
     "
     #E.g. : And switch to iframe by "myIframe" id
     page.driver.browser.switch_to.frame(web_element)
@@ -190,7 +190,7 @@ begin
 
   When(/^switch to default content$/) do
     "
-    Switches back to default content.
+      Switches back to default content.
     "
     #E.g. : And switch to default content
     switch_to_frame(:top)
