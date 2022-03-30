@@ -7,7 +7,6 @@ require 'selenium/webdriver'
 require 'selenium/webdriver/common/wait'
 require 'faker'
 
-
 require 'steps/action/check_steps'
 require 'steps/action/choose_steps'
 require 'steps/action/click_steps'

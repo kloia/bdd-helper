@@ -100,9 +100,9 @@ begin
     # E.g : Then verify ".success-message" css element has "Welcome" text
     case selector_type
     when "xpath"
-      expect(page).to have_xpath(selector, text: text)
+      page.should have_xpath(selector, text: text)
     else #which is css
-      expect(page).to have_css(selector, text: text)
+      page.should have_css(selector, text: text)
     end
   end
 
@@ -293,8 +293,8 @@ begin
 
   Then(/^verify page has "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
     "
-    Locator type can be 'css' or 'xpath'.
-    Then the locator should be given correspondingly.
+      Locator type can be 'css' or 'xpath'.
+      Then the locator should be given correspondingly.
     "
     #E.g. : Then verify page has ".class" css element
     page.assert_selector("#{locator_type}".to_sym, locator, wait: BddHelper.timeout)
@@ -302,8 +302,8 @@ begin
 
   Then(/^verify page has not "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
     "
-    Locator type can be 'css' or 'xpath'.
-    Then the locator should be given correspondingly.
+      Locator type can be 'css' or 'xpath'.
+      Then the locator should be given correspondingly.
     "
     #E.g. : Then verify page has not ".class" css element
     page.should_not have_selector("#{locator_type}".to_sym, locator, wait: BddHelper.timeout)
