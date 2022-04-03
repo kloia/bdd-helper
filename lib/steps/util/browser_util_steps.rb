@@ -54,13 +54,13 @@ begin
     open_new_window
   end
 
-  When(/^switch to (last window|last tab)$/) do |arg|
+  When(/^switch to last (?:window|tab)$/) do 
     # E.g : And switch to last window
     # E.g : And switch to last tab
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.last)
   end
 
-  When(/^switch to (first window|first tab)$/) do |arg|
+  When(/^switch to first (?:window|tab)$/) do
     # E.g : And switch to first window
     # E.g : And switch to first tab
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
@@ -166,10 +166,34 @@ begin
 
   When(/^get window title$/) do
     "
-       This gets title of the current page then defines it to the global variable
+      This gets title of the current page then defines it to the global variable
     "
     # E.g : And get window title
     $page_title = title
+  end
+
+  When(/^switch to iframe by "([^"]*)" id$/) do |web_element|
+    "
+      Switches to the iframe with id.
+    "
+    #E.g. : And switch to iframe by "myIframe" id
+    page.driver.browser.switch_to.frame(web_element)
+  end
+
+  When(/^switch to parent frame$/) do
+    "
+      Switches to the parent frame.
+    "
+    #E.g. : And switch to parent frame
+    page.driver.browser.switch_to.parent_frame
+  end
+
+  When(/^switch to default content$/) do
+    "
+      Switches back to default content.
+    "
+    #E.g. : And switch to default content
+    switch_to_frame(:top)
   end
 
 rescue StandardError => e

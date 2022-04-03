@@ -26,6 +26,99 @@ begin
     page.should_not have_selector(selector, text: text, wait: BddHelper.timeout)
   end
 
+  Then(/^verify "([^"]*)" element contains "([^"]*)" text$/) do |selector, text|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify ".success-message" element contains "elcom" text
+    page.should have_selector(selector, text: text, exact_text: false, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify "([^"]*)" (css|xpath) element starts with "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be css or xpath.
+    "
+    # E.g : Then verify "#select-class-example legend" css element starts with "Select" text
+    case selector_type
+    when "xpath"
+      find(:xpath, "#{selector}").text.should start_with(text)
+    else #which is css
+      find(:css, "#{selector}").text.should start_with(text)
+    end
+  end
+
+  Then(/^verify "([^"]*)" (css|xpath) element ends with "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be css or xpath.
+    "
+    # E.g : Then verify "//*[@id='open-tab-example-div']" xpath element ends with "Tab" text
+    case selector_type
+    when "xpath"
+      find(:xpath, "#{selector}").text.should end_with(text)
+    else
+      #which is css
+      find(:css, "#{selector}").text.should end_with(text)
+    end
+  end
+
+  Then(/^verify page has (\d+) (?:occurrences|occurrence) of "([^"]*)" element$/) do |number,selector|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify page has 7 occurrences of "[name='cars']" element
+    expect(page).to have_selector(selector, visible: true, count: number, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify page has minimum (\d+) (?:occurrences|occurrence) of "([^"]*)" element$/) do |number, selector|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify page has minimum 1 occurrence of "[name='cars']" element
+    page.assert_selector(selector, minimum: number, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify page has maximum (\d+) (?:occurrences|occurrence) of "([^"]*)" element$/) do |number, selector|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify page has maximum 8 occurrences of "[name='cars']" element
+    page.assert_selector(selector, maximum: number, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify page has between (\d+) and (\d+) occurrences of "([^"]*)" element$/) do |minimum, maximum, selector|
+    "
+      Selector should be a css selector
+    "
+    # E.g : Then verify page has between 1 and 7 occurrences of "[name='cars']" element
+    page.assert_selector(selector, between: minimum..maximum, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify "([^"]*)" (css|xpath) element has "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be xpath or css.
+    "
+    # E.g : Then verify ".success-message" css element has "Welcome" text
+    case selector_type
+    when "xpath"
+      page.should have_xpath(selector, text: text)
+    else #which is css
+      page.should have_css(selector, text: text)
+    end
+  end
+
+  Then(/^verify "([^"]*)" (css|xpath) element has not "([^"]*)" text$/) do |selector, selector_type, text|
+    "
+      Selector can be xpath or css.
+    "
+    # E.g : Then verify ".success-message" css element has not "Welcome" text
+    case selector_type
+    when "xpath"
+      find(:xpath,"#{selector}").text.should_not == text
+    else #which is css
+      find(:css,"#{selector}").text.should_not == text
+    end
+  end
+
   Then(/^verify "([^"]*)" button is displayed$/) do |button|
     "
       Button can be id, name, value, or title
@@ -197,6 +290,25 @@ begin
     # E.g : Then verify "United States" options is not selected from "Country" dropdown
     page.should_not have_select(dropdown, selected: option, wait: BddHelper.timeout)
   end
+
+  Then(/^verify page has "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
+    "
+      Locator type can be 'css' or 'xpath'.
+      Then the locator should be given correspondingly.
+    "
+    #E.g. : Then verify page has ".class" css element
+    page.assert_selector("#{locator_type}".to_sym, locator, wait: BddHelper.timeout)
+  end
+
+  Then(/^verify page has not "([^"]*)" (css|xpath) element$/) do |locator, locator_type|
+    "
+      Locator type can be 'css' or 'xpath'.
+      Then the locator should be given correspondingly.
+    "
+    #E.g. : Then verify page has not ".class" css element
+    page.should_not have_selector("#{locator_type}".to_sym, locator, wait: BddHelper.timeout)
+  end
+
 rescue StandardError => e
   puts e
 end
