@@ -2,7 +2,7 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name        = 'bdd-helper'
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.date        = '2022-04-03'
   s.summary     = "Helper steps for client-based automation testing"
   s.description = "Package of helper steps for BDD testing with Cucumber"
