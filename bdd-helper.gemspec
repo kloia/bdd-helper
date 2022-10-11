@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   }
   s.license     = 'MIT'
   s.required_ruby_version = '>= 2.6.0'
-  s.add_runtime_dependency 'capybara'
-  s.add_runtime_dependency 'cucumber'
-  s.add_runtime_dependency 'rspec'
-  s.add_runtime_dependency 'selenium-webdriver'
+  s.add_runtime_dependency 'capybara', '>= 3.0.0'
+  s.add_runtime_dependency 'cucumber', '>= 2.3.0'
+  s.add_runtime_dependency 'rspec', '>= 3.4.0'
+  s.add_runtime_dependency 'selenium-webdriver', '>= 3.0.0'
   s.add_runtime_dependency 'faker'
 
 end
